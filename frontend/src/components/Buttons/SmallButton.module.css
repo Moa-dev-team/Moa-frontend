@@ -4,7 +4,7 @@
   font-weight: bold;
   border-radius: 1rem;
   color: white;
-  background-color: #2556f6;
+  background-color: var(--color-blue);
   transition: all 0.1s ease-in-out;
 }
 
