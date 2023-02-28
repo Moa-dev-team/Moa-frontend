@@ -1,10 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-// import App from './App';
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import TestGang from "./TestGang";
-import TestSung from "./TestSung";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFound from "./pages/NotFound/NotFound";
 import Home from "./pages/Home/Home";
@@ -15,7 +13,7 @@ import User from "./pages/User/User";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <TestGang />,
+    element: <App />,
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
@@ -30,9 +28,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router}>
-      {/* <App /> */}
-      <TestGang />
-      <TestSung />
+      <App />
     </RouterProvider>
   </React.StrictMode>
 );
