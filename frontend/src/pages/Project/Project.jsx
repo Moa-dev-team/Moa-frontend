@@ -1,5 +1,10 @@
 import React from "react";
+import TestGang from "../../TestGang";
 
 export default function Project() {
-  return <div>Project</div>;
+  return (
+    <div>
+      <TestGang />
+    </div>
+  );
 }

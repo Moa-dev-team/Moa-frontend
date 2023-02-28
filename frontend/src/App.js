@@ -1,7 +1,13 @@
-import SmallButton from "./components/Buttons/SmallButton";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/navbar/NavBar";
 
 function App() {
-  return <SmallButton />;
+  return (
+    <>
+      <NavBar />
+      <Outlet />
+    </>
+  );
 }
 
 export default App;
