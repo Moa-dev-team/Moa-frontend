@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./MessageUserProfile.module.css";
+import profile from "../../assets/images/profile.png"
 
 export default function MessageUserProfile({
   profileImage,
@@ -13,7 +14,7 @@ export default function MessageUserProfile({
       <div className={`${styles.box} ${isSelected && styles.isSelected}`}>
         <img
         // profileImage 가 있다면 src에 prifileImage 를 넣는다.
-          src="https://d2u3dcdbebyaiu.cloudfront.net/uploads/atch_img/944/eabb97e854d5e5927a69d311701cc211_res.jpeg"
+          src={profile}
           alt="userprofile"
           className={styles.image}
         />

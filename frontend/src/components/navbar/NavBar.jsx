@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/Logo.png";
+import logo from "../../assets/images/Logo.png";
 import SmallButton from "../buttons/SmallButton";
 import styles from "./NavBar.module.css";
 
