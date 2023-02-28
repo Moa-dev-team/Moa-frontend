@@ -1,12 +1,18 @@
 import React from "react";
-import LargeButton from "./components/buttons/LargeButton";
+import MessageUserProfile from "./components/messages/MessageUserProfile";
 
 const TestSung = () => {
-  return (
-    <div style={{ marginTop: "10rem" }}>
-      <LargeButton text="자세히 보기" />
+  const boxStyle = {
+    width : '300px',
+    height : '800px',
+    border : '1px solid black',
+  } 
+  return <React.Fragment style={{ marginTop: "10rem" }}>
+    <div style={boxStyle}>
+      <MessageUserProfile username='안호성' job='프론트엔드' isSelected='True'/>
+      <MessageUserProfile username='안호성' job='프론트엔드'/>
     </div>
-  );
+  </React.Fragment>;
 };
 
 export default TestSung;
