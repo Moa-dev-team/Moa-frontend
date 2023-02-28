@@ -1,7 +1,14 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
+import NavBar from "./components/navbar/NavBar";
 
 const TestGang = () => {
-    return <div>gang</div>
-}
+  return (
+    <>
+      <NavBar />
+      <Outlet />
+    </>
+  );
+};
 
-export default TestGang
+export default TestGang;
