@@ -15,6 +15,10 @@ body {
   height: 100vh;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #root {
   width: 100%;
   max-width: 1154px;
