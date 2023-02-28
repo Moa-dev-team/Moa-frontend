@@ -13,6 +13,10 @@
     align-items: center;
 }
 
+.box.isSelected {
+    background-color: #F3F5F7;
+}
+
 .image {
     display: inline-block;
     width: 40px;

@@ -9,7 +9,8 @@ const TestSung = () => {
   } 
   return <React.Fragment style={{ marginTop: "10rem" }}>
     <div style={boxStyle}>
-      <MessageUserProfile />
+      <MessageUserProfile username='안호성' job='프론트엔드' isSelected='True'/>
+      <MessageUserProfile username='안호성' job='프론트엔드'/>
     </div>
   </React.Fragment>;
 };
