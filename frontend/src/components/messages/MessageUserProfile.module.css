@@ -1,0 +1,47 @@
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: bold;
+}
+
+.box {
+    border: 1px solid #D9D9D9;
+    border-radius: 10px;
+    width: 90%;
+    margin : 0 auto;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 0.5rem;
+    margin-left: 15px;
+    border: 0.5px solid #D9D9D9;
+    border-radius: 4px;
+}
+
+.userData {
+    display: inline;
+    margin-left: 1.5rem;
+    margin-right: 3rem;
+}
+
+.userData .username, 
+.userData .job {
+    margin : 0;
+}
+
+.userData .job {
+    margin-top: 0.2rem;
+    color: #9DA194;
+}
+
+.messageStatusBox {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
