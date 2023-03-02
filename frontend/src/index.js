@@ -9,6 +9,7 @@ import Home from "./pages/Home/Home";
 import Project from "./pages/Project/Project";
 import Study from "./pages/Study/Study";
 import User from "./pages/User/User";
+import Login from "./pages/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: "/projects", element: <Project /> },
       { path: "/studies", element: <Study /> },
       { path: "/users", element: <User /> },
+      { path: "/login", element: <Login /> },
     ],
   },
 ]);
