@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
 import SmallButton from "../buttons/SmallButton";
 import styles from "./NavBar.module.css";
@@ -10,6 +10,10 @@ const style = {
 };
 
 export default function NavBar() {
+  const navigate = useNavigate();
+  const loginClick = () => {
+    navigate("/login");
+  };
   return (
     <header className={styles.header}>
       <div className={styles.logoAndMenus}>
@@ -41,7 +45,7 @@ export default function NavBar() {
           </NavLink>
         </nav>
       </div>
-      <SmallButton />
+      <SmallButton text="로그인" onClick={loginClick} />
     </header>
   );
 }
