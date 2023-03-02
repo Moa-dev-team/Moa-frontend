@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./MessageUserProfile.module.css";
-import profile from "../../assets/images/profile.png"
+import profile from "../../assets/images/profile.png";
 
 export default function MessageUserProfile({
   profileImage,
@@ -12,18 +12,20 @@ export default function MessageUserProfile({
   return (
     <React.Fragment>
       <div className={`${styles.box} ${isSelected && styles.isSelected}`}>
-        <img
-        // profileImage 가 있다면 src에 prifileImage 를 넣는다.
-          src={profile}
-          alt="userprofile"
-          className={styles.image}
-        />
-        <div className={styles.userData}>
+        <div className="d-flex">
+          <img
+            // profileImage 가 있다면 src에 prifileImage 를 넣는다.
+            src={profile}
+            alt="userprofile"
+            className={styles.image}
+          />
+          <div className={styles.userData}>
             <p className={styles.username}>{username}</p>
             <p className={styles.job}>{job}</p>
+          </div>
         </div>
-        <div className={styles.messageStatusBox}>
-            <button>asd</button>
+        <div className={styles.bedgeBox}>
+          <div className="badge bg-primary">{count > 0 ? `+${count}` : ""}</div>
         </div>
       </div>
     </React.Fragment>

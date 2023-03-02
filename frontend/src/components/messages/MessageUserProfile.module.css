@@ -11,6 +11,7 @@
     margin-top: 1rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .box.isSelected {
@@ -48,4 +49,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.bedgeBox {
+    margin-right: 1rem;
 }
