@@ -9,14 +9,15 @@
 }
 
 .user-list {
-    max-height: 800px;
+    max-height: 65vh;
     overflow-y: scroll;
+    padding-bottom: 3rem;
 }
 
 .chat-messages {
     display: flex;
     flex-direction: column;
-    max-height: 800px;
+    max-height: 65vh;
     overflow-y: scroll
 }
 
