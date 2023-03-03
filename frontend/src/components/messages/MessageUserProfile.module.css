@@ -14,8 +14,13 @@
     justify-content: space-between;
 }
 
+.box:hover {
+    transform: scale(1.05);
+}
+
 .box.isSelected {
     background-color: #F3F5F7;
+    transform: scale(1.05);
 }
 
 .image {
