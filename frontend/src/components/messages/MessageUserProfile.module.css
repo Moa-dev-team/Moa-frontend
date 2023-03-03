@@ -11,10 +11,16 @@
     margin-top: 1rem;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.box:hover {
+    transform: scale(1.05);
 }
 
 .box.isSelected {
     background-color: #F3F5F7;
+    transform: scale(1.05);
 }
 
 .image {
@@ -48,4 +54,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.bedgeBox {
+    margin-right: 1rem;
 }
