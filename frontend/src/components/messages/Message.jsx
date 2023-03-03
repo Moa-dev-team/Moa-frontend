@@ -3,14 +3,15 @@ import styles from "./Message.module.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import MessageUserProfile from "./MessageUserProfile";
-import image from "../../assets/images/profile.png"
+import image from "../../assets/images/profile.png";
+import ChatRight from "./ChatRight";
 
 export default function Message() {
   return (
     <React.Fragment>
       <main className="content">
         <div className="container p-0">
-          <div className="card">
+          <div>
             <div className="row g-0">
               <div className="col-12 col-lg-5 col-xl-3 border-right">
                 <p className={styles["user-header"]}>Message</p>
@@ -24,7 +25,7 @@ export default function Message() {
                     username="김재강"
                     job="백엔드"
                     isSelected={false}
-                    count='5'
+                    count="5"
                   />
                 </div>
 
@@ -44,35 +45,14 @@ export default function Message() {
                     </div>
                     <div className="flex-grow-1">
                       <strong>안호성</strong>
-                      <div className="text-muted small">
-                        프론트엔드
-                      </div>
+                      <div className="text-muted small">프론트엔드</div>
                     </div>
                   </div>
                 </div>
-
                 <div className="position-relative">
                   <div className={`${styles["chat-messages"]} p-4`}>
-                    <div className={`${styles["chat-message-right"]} pb-4`}>
-                      <div>
-                        <img
-                          src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                          className="rounded-circle mr-1"
-                          alt="Chris Wood"
-                          width="40"
-                          height="40"
-                        />
-                        <div className="text-muted small text-nowrap mt-2">
-                          2:33 am
-                        </div>
-                      </div>
-                      <div className="flex-shrink-1 bg-light rounded py-2 px-3 mr-3">
-                        <div className="font-weight-bold mb-1">You</div>
-                        Lorem ipsum dolor sit amet, vis erat denique in, dicunt
-                        prodesset te vix.
-                      </div>
-                    </div>
-
+                    
+                    <ChatRight text="안녕하세요" image={image} name='안호성' date={new Date('2020-01-01')}/>
                     <div className={`${styles["chat-message-left"]} pb-4`}>
                       <div>
                         <img
