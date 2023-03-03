@@ -1,78 +1,104 @@
 .user-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-    font-size: 1.5rem;
-    padding-top: 10px;
-    color: #9DA194;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  font-size: 1.5rem;
+  padding-top: 10px;
+  color: #9da194;
 }
 
 .user-list {
-    max-height: 65vh;
-    overflow-y: scroll;
-    padding-bottom: 3rem;
+  max-height: 65vh;
+  overflow-y: scroll;
+  padding-bottom: 3rem;
 }
 
 .chat-messages {
-    display: flex;
-    flex-direction: column;
-    max-height: 65vh;
-    overflow-y: scroll
+  display: flex;
+  flex-direction: column;
+  max-height: 65vh;
+  overflow-y: scroll;
 }
 
 .chat-message-left,
 .chat-message-right {
-    display: flex;
-    flex-shrink: 0
+  display: flex;
+  flex-shrink: 0;
 }
 
 .chat-message-left {
-    margin-right: auto
+  margin-right: auto;
 }
 
 .chat-message-right {
-    flex-direction: row-reverse;
-    margin-left: auto
+  flex-direction: row-reverse;
+  margin-left: auto;
 }
 
 .date-right {
-    text-align: right;
-    padding-right: 5rem;
+  text-align: right;
+  padding-right: 5rem;
 }
 
 .py-3 {
-    padding-top: 1rem!important;
-    padding-bottom: 1rem!important;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
 }
 .px-4 {
-    padding-right: 1.5rem!important;
-    padding-left: 1.5rem!important;
+  padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
 }
 
 .flex-grow-0 {
-    flex-grow: 0!important;
+  flex-grow: 0 !important;
 }
 .border-top {
-    border-top: 1px solid #dee2e6!important;
+  border-top: 1px solid #dee2e6 !important;
 }
 
 .image {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    margin: 0.5rem;
-    margin-left: 1rem;
-    border: 0.5px solid #D9D9D9;
-    border-radius: 4px;
-    margin-right : 2rem;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0.5rem;
+  margin-left: 1rem;
+  border: 0.5px solid #d9d9d9;
+  border-radius: 4px;
+  margin-right: 2rem;
 }
 
 .chat-image {
-    width: 40px;
-    height: 40px;
-    margin: 1rem;
-    margin-bottom: 0.5rem;
-    border: 0.5px solid #D9D9D9;
-    border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  margin: 1rem;
+  margin-bottom: 0.5rem;
+  border: 0.5px solid #d9d9d9;
+  border-radius: 4px;
+}
+
+/* Set the width of the sidebar */
+.sidebar {
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  width: 70%;
+  position: fixed;
+  top: 0;
+  left: -70%;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+/* Style the sidebar links */
+.sidebar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+/* Toggle this class to show the sidebar */
+.sidebar-open {
+  left: 0;
 }
