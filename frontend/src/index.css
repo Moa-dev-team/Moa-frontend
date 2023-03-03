@@ -22,6 +22,12 @@ body {
 #root {
   width: 100%;
   max-width: 1154px;
+  height: 100%;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
 }
 
 button {

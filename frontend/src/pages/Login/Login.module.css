@@ -1,0 +1,57 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.modal {
+  padding: 2rem 8rem;
+  border: 1px solid var(--color-gray);
+  border-radius: 1rem;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo h1,
+.logo h2 {
+  margin: 0;
+}
+
+.logo h1 {
+  margin-left: 0.4rem;
+  font-size: 1.8rem;
+}
+
+.logo h2 {
+  margin-left: 1rem;
+  font-size: 1.6rem;
+}
+
+.logoImage {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.description {
+  margin: 1.4rem 0;
+}
+
+.google,
+.naver,
+.github {
+  margin-right: 1rem;
+  font-size: 1.8rem;
+}
+
+.naver {
+  color: #00bf18;
+}
+
+.github {
+  color: black;
+}
