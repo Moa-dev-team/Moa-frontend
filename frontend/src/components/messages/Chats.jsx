@@ -11,8 +11,18 @@ const myName = "개발자";
 //get api
 //id 와 주고 받은 모든 쪽지의 보낸사람 id, 데이터의 메세지, 보낸 날짜
 const messages = [
-  { id: 2, text: "안녕하세요", date: new Date("2020-01-01") },
-  { id: 0, text: "안녕못한데?", date: new Date("2020-01-01") },
+  { id: 0, text: "안녕하세요", date: new Date("2020-01-01") },
+  { id: 2, text: "안녕못한데?", date: new Date("2020-01-02") },
+  { id: 0, text: "안녕하세요", date: new Date("2020-01-01") },
+  { id: 2, text: "안녕못한데?", date: new Date("2020-01-02") },
+  { id: 0, text: "안녕하세요", date: new Date("2020-01-01") },
+  { id: 2, text: "안녕못한데?", date: new Date("2020-01-02") },
+  { id: 0, text: "안녕하세요", date: new Date("2020-01-01") },
+  { id: 2, text: "안녕못한데?", date: new Date("2020-01-02") },
+  { id: 0, text: "안녕하세요", date: new Date("2020-01-01") },
+  { id: 2, text: "안녕못한데?", date: new Date("2020-01-02") },
+  { id: 0, text: "안녕하세요", date: new Date("2020-01-01") },
+  { id: 2, text: "안녕못한데?", date: new Date("2020-01-02") },
 ];
 
 export default function Chats({ id, name, image }) {
@@ -20,16 +30,22 @@ export default function Chats({ id, name, image }) {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
   }, [chatMessages]);
+
+  const handleSendMessage = (message) => {
+    // Add the new message to the chatMessages state
+    setChatMessages([...chatMessages, message]);
+  };
 
   return (
     <React.Fragment>
       <div className={`${styles["chat-messages"]} p-4`}>
-        {messages.map((message) => {
+        {chatMessages.map((message, index) => {
           if (myId === message.id)
             return (
               <ChatRight
+                key={index}
                 text={message.text}
                 image={myImage}
                 name={myName}
@@ -38,6 +54,7 @@ export default function Chats({ id, name, image }) {
             );
           return (
             <ChatLeft
+              key={index}
               text={message.text}
               image={image}
               name={name}
@@ -50,16 +67,41 @@ export default function Chats({ id, name, image }) {
       <div
         className={`${styles["flex-grow-0"]} ${styles["py-3"]} ${styles["px-4"]} ${styles["border-top"]}`}
       >
-        <div className="input-group">
+        <SendMessageForm onSendMessage={handleSendMessage} />
+        {/* <div className="input-group">
           <input
             type="text"
             className="form-control m-"
             placeholder="메세지를 입력해주세요."
-            
           />
           <button className="btn btn-primary">전송</button>
-        </div>
+        </div> */}
       </div>
     </React.Fragment>
   );
 }
+
+const SendMessageForm = ({ onSendMessage }) => {
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    onSendMessage({ id: myId, text: message, date: new Date() });
+    setMessage("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="input-group">
+        <textarea
+          className="form-control"
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+        ></textarea>
+        <button type="submit" className="btn btn-primary">
+          전송
+        </button>
+      </div>
+    </form>
+  );
+};
