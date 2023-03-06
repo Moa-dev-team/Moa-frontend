@@ -10,6 +10,8 @@ import Project from "./pages/Project/Project";
 import Study from "./pages/Study/Study";
 import User from "./pages/User/User";
 import Login from "./pages/Login/Login";
+import Message from "./pages/Message/Message";
+import MyPage from "./pages/MyPage/MyPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,8 @@ const router = createBrowserRouter([
       { path: "/studies", element: <Study /> },
       { path: "/users", element: <User /> },
       { path: "/login", element: <Login /> },
+      { path: "/message", element: <Message /> },
+      { path: "/my-page", element: <MyPage /> },
     ],
   },
 ]);

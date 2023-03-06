@@ -1,0 +1,22 @@
+.list {
+  flex-shrink: 0;
+}
+
+.link {
+  margin-right: 3rem;
+  color: black;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .link {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .link {
+    font-size: 1rem;
+  }
+}
