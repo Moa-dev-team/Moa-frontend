@@ -57,18 +57,16 @@ const users = [
 // MessageUserProfile 을 클릭하여 읽지 않은 메세지 갱신
 
 export default function Message() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   // users 가 존재하지 않을 경우 예외 케이스 만들어야 함
   const [selectedId, setSelectedId] = useState(users[0].id);
   const selectedUser = users.find((user) => user.id === selectedId);
-  console.log(selectedUser);
 
   const handleToggleClick = () => {
     setIsSidebarOpen(!isSidebarOpen); // toggle the state
   };
 
   const MessageUserProfileClickHandler = (userId) => {
-    console.log(userId);
     setSelectedId(userId);
   };
 
@@ -102,7 +100,7 @@ export default function Message() {
                   profileImage={user.image}
                   count={user.unreadCount}
                   isSelected={user.id === selectedId}
-                  onClick={MessageUserProfileClickHandler}
+                  onClick={() => MessageUserProfileClickHandler(user.id)}
                 />
               ))}
             </div>
@@ -156,7 +154,11 @@ export default function Message() {
                   </div>
                 </div>
                 <div className="position-relative">
-                  <Chats />
+                  <Chats
+                    id={selectedId}
+                    image={selectedUser.profile}
+                    name={selectedUser.name}
+                  />
                 </div>
               </div>
             </div>
