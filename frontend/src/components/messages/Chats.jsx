@@ -51,6 +51,18 @@ export default function Chats() {
           date={new Date("2020-01-01")}
         />
       </div>
+      <div
+        className={`${styles["flex-grow-0"]} ${styles["py-3"]} ${styles["px-4"]} ${styles["border-top"]}`}
+      >
+        <div className="input-group">
+          <input
+            type="text"
+            className="form-control m-"
+            placeholder="메세지를 입력해주세요."
+          />
+          <button className="btn btn-primary">전송</button>
+        </div>
+      </div>
     </React.Fragment>
   );
 }
