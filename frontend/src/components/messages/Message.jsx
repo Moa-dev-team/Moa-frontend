@@ -49,10 +49,70 @@ export default function Message() {
                 isSelected={false}
                 count="5"
               />
+              <MessageUserProfile
+                username="김재강"
+                job="백엔드"
+                isSelected={false}
+                count="5"
+              />
+              <MessageUserProfile
+                username="김재강"
+                job="백엔드"
+                isSelected={false}
+                count="5"
+              />
+              <MessageUserProfile
+                username="김재강"
+                job="백엔드"
+                isSelected={false}
+                count="5"
+              />
+              <MessageUserProfile
+                username="김재강"
+                job="백엔드"
+                isSelected={false}
+                count="5"
+              />
+              <MessageUserProfile
+                username="김재강"
+                job="백엔드"
+                isSelected={false}
+                count="5"
+              />
+              <MessageUserProfile
+                username="김재강"
+                job="백엔드"
+                isSelected={false}
+                count="5"
+              />
+              <MessageUserProfile
+                username="김재강"
+                job="백엔드"
+                isSelected={false}
+                count="5"
+              />
+              <MessageUserProfile
+                username="김재강"
+                job="백엔드"
+                isSelected={false}
+                count="5"
+              />
+              <MessageUserProfile
+                username="김재강"
+                job="백엔드"
+                isSelected={false}
+                count="5"
+              />
+              <MessageUserProfile
+                username="김재강"
+                job="백엔드"
+                isSelected={false}
+                count="5"
+              />
             </div>
             {/* userlist */}
             <div className="row g-0">
-              <div className="d-none d-lg-block col-lg-4 col-xl-3 border-right">
+              <div className="d-none d-md-block col-md-5 col-lg-4 col-xl-3 border-right">
                 <p className={styles["user-header"]}>Message</p>
                 <div className={styles["user-list"]}>
                   <MessageUserProfile
@@ -122,13 +182,13 @@ export default function Message() {
                   />
                 </div>
 
-                <hr className="d-block d-lg-none mt-1 mb-0" />
+                <hr className="d-block d-md-none mt-1 mb-0" />
               </div>
-              <div className="col-12 col-lg-8 col-xl-9">
+              <div className="col-12 col-md-7 col-lg-8 col-xl-9">
                 <div className="py-2 px-4 border-bottom">
                   <div className="d-flex align-items-center py-1">
                     {/* sidebar Toggle */}
-                    <div className="d-lg-none">
+                    <div className="d-md-none">
                       <button
                         type="button"
                         className="btn btn-primary"
