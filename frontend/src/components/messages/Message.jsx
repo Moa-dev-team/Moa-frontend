@@ -6,6 +6,8 @@ import MessageUserProfile from "./MessageUserProfile";
 import image from "../../assets/images/profile.png";
 import ChatRight from "./ChatRight";
 import ChatLeft from "./ChatLeft";
+import { BiMenu } from "react-icons/bi";
+import {AiOutlineArrowLeft} from "react-icons/ai";
 
 export default function Message() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // set initial state to closed
@@ -25,14 +27,17 @@ export default function Message() {
                 isSidebarOpen && styles["sidebar-open"]
               }`}
             >
-              <button
-                type="button"
-                className="btn btn-primary"
-                id="sidebar-toggle"
-                onClick={handleToggleClick}
-              >
-                Toggle Sidebar
-              </button>
+              <div className="d-flex ">
+                <p className={`${styles["user-header"]} m-auto`}>Message</p>
+                <button
+                  type="button"
+                  className="btn btn-primary m-3"
+                  id="sidebar-toggle"
+                  onClick={handleToggleClick}
+                >
+                  <AiOutlineArrowLeft className="bi fs-4 m-0" />
+                </button>
+              </div>
               <MessageUserProfile
                 username="안호성"
                 job="프론트엔드"
@@ -130,7 +135,7 @@ export default function Message() {
                         id="sidebar-toggle"
                         onClick={handleToggleClick}
                       >
-                        Toggle button
+                        <BiMenu className="bi fs-4 m-0" />
                       </button>
                     </div>
                     <div className="position-relative">
