@@ -8,10 +8,12 @@ export default function MessageUserProfile({
   job,
   count,
   isSelected,
+  onClick,
 }) {
+
   return (
     <React.Fragment>
-      <div className={`${styles.box} ${isSelected && styles.isSelected}`}>
+      <div className={`${styles.box} ${isSelected && styles.isSelected}`} onClick={onClick}>
         <div className="d-flex">
           <img
             // profileImage 가 있다면 src에 prifileImage 를 넣는다.
