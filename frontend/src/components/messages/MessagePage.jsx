@@ -85,7 +85,7 @@ export default function MessagePage() {
                 <p className={`${styles["user-header"]} m-auto`}>Message</p>
                 <button
                   type="button"
-                  className="btn btn-primary m-3 mt-4"
+                  className={styles.toggleButton}
                   id="sidebar-toggle"
                   onClick={handleToggleClick}
                 >
@@ -125,13 +125,13 @@ export default function MessagePage() {
                 <hr className="d-block d-md-none mt-1 mb-0" />
               </div>
               <div className="col-12 col-md-7 col-lg-8 col-xl-9">
-                <div className="py-2 px-4 border-bottom">
+                <div className={styles['chat-header']}>
                   <div className="d-flex align-items-center py-1">
                     {/* sidebar Toggle */}
                     <div className="d-md-none">
                       <button
                         type="button"
-                        className="btn btn-primary"
+                        className={styles.toggleButton}
                         id="sidebar-toggle"
                         onClick={handleToggleClick}
                       >

@@ -39,6 +39,14 @@
   transition: 0.5s;
 }
 
+.chat-header {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
 /* Style the sidebar links */
 .sidebar a {
   display: block;
@@ -51,4 +59,33 @@
 /* Toggle this class to show the sidebar */
 .sidebar-open {
   left: 0;
+}
+
+.toggleButton {
+  background-color: var(--color-blue);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  margin: 0.75rem 0.5rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 425px) {
+  .toggleButton {
+    padding: 0.2rem 0.5rem;
+    margin: 1rem 0.5rem;
+    margin-left: 1rem;
+  }
+  .image {
+    width: 35px;
+    height: 35px;
+    margin: 0.5rem;
+    margin-left: 0.7rem;
+    border-radius: 4px;
+    margin-right: 1rem;
+  }
+  .chat-header {
+    padding: 0;
+    font-size: 0.85rem;
+  }
 }
