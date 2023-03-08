@@ -8,19 +8,16 @@ import LoginButton from "../../components/buttons/LoginButton";
 const loginSNS = [
   {
     text: "구글",
-    eng: "google",
     logo: <FcGoogle className={styles.google} />,
     id: 1,
   },
   {
     text: "네이버",
-    eng: "naver",
     logo: <SiNaver className={styles.naver} />,
     id: 2,
   },
   {
     text: "깃허브",
-    eng: "github",
     logo: <SiGithub className={styles.github} />,
     id: 3,
   },
@@ -38,7 +35,7 @@ export default function Login() {
         <pre className={styles.description}>
           간단한 로그인 후 다양한 기능을 체험해보세요.
         </pre>
-        <ul>
+        <ul className={styles.list}>
           {loginSNS.map((sns) => (
             <LoginButton key={sns.id} sns={sns} />
           ))}
