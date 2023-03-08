@@ -20,6 +20,7 @@ body {
 }
 
 #root {
+  position: relative;
   width: 100%;
   max-width: 1154px;
   height: 100%;
