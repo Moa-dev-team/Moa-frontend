@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Message.module.css";
+import styles from "./MessagePage.module.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import MessageUserProfile from "./MessageUserProfile";
@@ -56,7 +56,7 @@ const users = [
 // post api
 // MessageUserProfile 을 클릭하여 읽지 않은 메세지 갱신
 
-export default function Message() {
+export default function MessagePage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   // users 가 존재하지 않을 경우 예외 케이스 만들어야 함
   const [selectedId, setSelectedId] = useState(users[0].id);
@@ -85,7 +85,7 @@ export default function Message() {
                 <p className={`${styles["user-header"]} m-auto`}>Message</p>
                 <button
                   type="button"
-                  className="btn btn-primary m-3 mt-4"
+                  className={styles.toggleButton}
                   id="sidebar-toggle"
                   onClick={handleToggleClick}
                 >
@@ -125,13 +125,13 @@ export default function Message() {
                 <hr className="d-block d-md-none mt-1 mb-0" />
               </div>
               <div className="col-12 col-md-7 col-lg-8 col-xl-9">
-                <div className="py-2 px-4 border-bottom">
+                <div className={styles['chat-header']}>
                   <div className="d-flex align-items-center py-1">
                     {/* sidebar Toggle */}
                     <div className="d-md-none">
                       <button
                         type="button"
-                        className="btn btn-primary"
+                        className={styles.toggleButton}
                         id="sidebar-toggle"
                         onClick={handleToggleClick}
                       >
