@@ -1,6 +1,6 @@
 import React from "react";
 import MessageUserProfile from "./components/messages/MessageUserProfile";
-import Message from "./components/messages/Message";
+import Message from "./components/messages/MessagePage";
 
 const TestSung = () => {
   const boxStyle = {
@@ -10,7 +10,7 @@ const TestSung = () => {
   };
   return (
     <React.Fragment>
-        <Message/>
+        
       {/* <div style={boxStyle}>
         <MessageUserProfile
           username="안호성"

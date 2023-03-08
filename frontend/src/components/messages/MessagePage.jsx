@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Message.module.css";
+import styles from "./MessagePage.module.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import MessageUserProfile from "./MessageUserProfile";
@@ -56,7 +56,7 @@ const users = [
 // post api
 // MessageUserProfile 을 클릭하여 읽지 않은 메세지 갱신
 
-export default function Message() {
+export default function MessagePage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   // users 가 존재하지 않을 경우 예외 케이스 만들어야 함
   const [selectedId, setSelectedId] = useState(users[0].id);
