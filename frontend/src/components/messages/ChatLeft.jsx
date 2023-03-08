@@ -19,7 +19,7 @@ export default function ChatLeft({text, image, name, date}) {
           <div className="text-nowrap text-center">{name}</div>
         </div>
         <div className="d-flex align-items-center justify-content-center">
-          <div className="flex-shrink-1 bg-light rounded p-3 ml-3 mb-3">{text}</div>
+          <div className={`flex-shrink-1 bg-light rounded p-3 ml-3 mb-3 ${styles.text}`}>{text}</div>
         </div>
       </div>
     </React.Fragment>
