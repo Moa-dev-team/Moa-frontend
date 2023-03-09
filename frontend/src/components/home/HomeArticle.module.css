@@ -1,0 +1,10 @@
+.article {
+  margin: 0 1rem 3rem 1rem;
+  height: 580px;
+  background-position: center;
+  background-size: cover;
+}
+
+.title {
+  font-weight: bold;
+}
