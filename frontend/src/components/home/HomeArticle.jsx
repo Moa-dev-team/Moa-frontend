@@ -16,9 +16,17 @@ export default function HomeArticle({
       className={styles.article}
       style={{ backgroundImage: `url(${image})` }}
     >
-      <h1 className={styles.title}>{title}</h1>
-      <pre className={styles.text}>{text}</pre>
-      <LargeButton text="자세히 보기" onClick={handleClick} />
+      <div className={position === "left" ? styles.box : styles.box__right}>
+        <div className={position === "left" ? styles.info : styles.info__right}>
+          <h1 className={styles.title}>{title}</h1>
+          <pre
+            className={position === "left" ? styles.text : styles.text__right}
+          >
+            {text}
+          </pre>
+          <LargeButton text="자세히 보기" onClick={handleClick} />
+        </div>
+      </div>
     </article>
   );
 }
