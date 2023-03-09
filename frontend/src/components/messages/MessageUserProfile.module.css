@@ -37,6 +37,7 @@
   display: inline;
   margin-left: 1.5rem;
   margin-right: 3rem;
+  margin-top: 0.3rem;
 }
 
 .userData .username,
@@ -45,8 +46,9 @@
 }
 
 .userData .job {
-  margin-top: 0.2rem;
+  margin-top: 0rem;
   color: #9da194;
+  font-size: 0.9rem;
 }
 
 .messageStatusBox {
