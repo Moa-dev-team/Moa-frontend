@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
-import SmallButton from "../buttons/SmallButton";
+import SmallButton from "../Buttons/SmallButton";
 import styles from "./NavBar.module.css";
 import { FiMail } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
