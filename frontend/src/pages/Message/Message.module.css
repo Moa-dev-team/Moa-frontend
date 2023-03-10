@@ -8,6 +8,12 @@
   color: #9da194;
 }
 
+.alert {
+  margin-right: 1rem;
+  color: var(--color-blue);
+  font-size : 2rem;
+}
+
 .user-list {
   height: 60.5vh;
   overflow-y: scroll;

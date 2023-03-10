@@ -8,7 +8,7 @@ import Chats from "../../components/messages/Chats";
 import AlermBox from "../../components/messages/AlermBox";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-
+import { HiBell } from "react-icons/hi";
 
 // get api
 // 나와 메세지를 주고 받은 모든 사람들의 아이디, 이름, 희망직군, 프로필 이미지, 가장 최근에 연락한 메세지 날짜, 읽지 않은 메세지 개수
@@ -54,128 +54,126 @@ const users = [
     lastDate: new Date("2020-01-05"),
     unreadCount: 0,
   },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-  // {
-  //   id: 99,
-  //   name: "김준교",
-  //   job: "상놈",
-  //   profile: image,
-  //   lastDate: new Date("2020-01-05"),
-  //   unreadCount: 0,
-  // },
-
-
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
 ];
 // post api
 // MessageUserProfile 을 클릭하여 읽지 않은 메세지 갱신
@@ -216,7 +214,7 @@ export default function MessagePage() {
                   <AiOutlineArrowLeft className="bi fs-4 m-0" />
                 </button>
               </div>
-              
+
               <div className={styles["user-list"]}>
                 {users.map((user) => (
                   <MessageUserProfile
@@ -230,7 +228,10 @@ export default function MessagePage() {
                   />
                 ))}
               </div>
-              <AlermBox count={2}/>
+              <AlermBox
+                count={2}
+                onClick={() => MessageUserProfileClickHandler(0)}
+              />
             </div>
             {/* userlist */}
             <div className="row g-0">
@@ -249,7 +250,10 @@ export default function MessagePage() {
                     />
                   ))}
                 </div>
-                <AlermBox count={2}/>
+                <AlermBox
+                  count={2}
+                  onClick={() => MessageUserProfileClickHandler(0)}
+                />
 
                 <hr className="d-block d-md-none mt-1 mb-0" />
               </div>
@@ -267,27 +271,46 @@ export default function MessagePage() {
                         <BiMenu className="bi fs-4 m-0" />
                       </button>
                     </div>
-                    <div className="position-relative">
-                      <img
-                        src={selectedUser.profile}
-                        className={styles.image}
-                        alt="Sharon Lessman"
-                        width="40"
-                        height="40"
-                      />
-                    </div>
-                    <div className="flex-grow-1">
-                      <strong>{selectedUser.name}</strong>
-                      <div className="text-muted small">{selectedUser.job}</div>
-                    </div>
+                    {selectedId === 0 ? (
+                      <React.Fragment>
+                        <div className="position-relative">
+                          <HiBell className={styles.alert} />
+                        </div>
+                        <div className="flex-grow-1">
+                          <div className="fs-5 my-2">알림</div>
+                        </div>
+                      </React.Fragment>
+                    ) : (
+                      <React.Fragment>
+                        <div className="position-relative">
+                          <img
+                            src={selectedUser.profile}
+                            className={styles.image}
+                            alt="Sharon Lessman"
+                            width="40"
+                            height="40"
+                          />
+                        </div>
+                        <div className="flex-grow-1">
+                          <strong>{selectedUser.name}</strong>
+                          <div className="text-muted small">
+                            {selectedUser.job}
+                          </div>
+                        </div>
+                      </React.Fragment>
+                    )}
                   </div>
                 </div>
                 <div className="position-relative">
-                  <Chats
-                    id={selectedId}
-                    image={selectedUser.profile}
-                    name={selectedUser.name}
-                  />
+                  {selectedId === 0 ? (
+                    <Chats id={selectedId} image={image} name="알림" />
+                  ) : (
+                    <Chats
+                      id={selectedId}
+                      image={selectedUser.profile}
+                      name={selectedUser.name}
+                    />
+                  )}
                 </div>
               </div>
             </div>
