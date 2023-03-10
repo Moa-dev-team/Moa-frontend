@@ -52,6 +52,128 @@ const users = [
     lastDate: new Date("2020-01-05"),
     unreadCount: 0,
   },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  {
+    id: 99,
+    name: "김준교",
+    job: "상놈",
+    profile: image,
+    lastDate: new Date("2020-01-05"),
+    unreadCount: 0,
+  },
+  
+
 ];
 // post api
 // MessageUserProfile 을 클릭하여 읽지 않은 메세지 갱신
@@ -121,6 +243,7 @@ export default function MessagePage() {
                     />
                   ))}
                 </div>
+                <MessageUserProfile/>
 
                 <hr className="d-block d-md-none mt-1 mb-0" />
               </div>
