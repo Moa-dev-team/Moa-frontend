@@ -69,6 +69,9 @@ export default function MessagePage() {
   };
 
   const MessageUserProfileClickHandler = (userId) => {
+    if (window.innerWidth < 768) {
+      setIsSidebarOpen(!isSidebarOpen);
+    }
     setSelectedId(userId);
   };
 
@@ -139,7 +142,7 @@ export default function MessagePage() {
               </div>
               <div className="col-12 col-md-7 col-lg-8 col-xl-9">
                 <div className={styles["chat-header"]}>
-                  <div className="d-flex align-items-center py-1">
+                  <div className="d-flex align-items-center">
                     {/* sidebar Toggle */}
                     <div className="d-md-none">
                       <button
@@ -151,34 +154,34 @@ export default function MessagePage() {
                         <BiMenu className="bi fs-4 m-0" />
                       </button>
                     </div>
-                    {selectedId === 0 ? (
-                      <React.Fragment>
-                        <div className="position-relative">
-                          <HiBell className={styles.alert} />
-                        </div>
-                        <div className="flex-grow-1">
-                          <div className="fs-5 my-2">알림</div>
-                        </div>
-                      </React.Fragment>
-                    ) : (
-                      <React.Fragment>
-                        <div className="position-relative">
-                          <img
-                            src={selectedUser.profile}
-                            className={styles.image}
-                            alt="Sharon Lessman"
-                            width="40"
-                            height="40"
-                          />
-                        </div>
-                        <div className="flex-grow-1">
-                          <strong>{selectedUser.name}</strong>
-                          <div className="text-muted small">
-                            {selectedUser.job}
+                      {selectedId === 0 ? (
+                        <React.Fragment>
+                          <div className="position-relative">
+                            <HiBell className={styles.alert} />
                           </div>
-                        </div>
-                      </React.Fragment>
-                    )}
+                          <div className="flex-grow-1">
+                            <div className="fs-5 my-2">알림</div>
+                          </div>
+                        </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          <div className="position-relative">
+                            <img
+                              src={selectedUser.profile}
+                              className={styles.image}
+                              alt="Sharon Lessman"
+                              width="40"
+                              height="40"
+                            />
+                          </div>
+                          <div className="flex-grow-1">
+                            <strong>{selectedUser.name}</strong>
+                            <div className="text-muted small">
+                              {selectedUser.job}
+                            </div>
+                          </div>
+                        </React.Fragment>
+                      )}
                   </div>
                 </div>
                 <div className="position-relative">
