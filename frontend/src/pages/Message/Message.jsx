@@ -5,8 +5,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import MessageUserProfile from "../../components/messages/MessageUserProfile";
 import image from "../../assets/images/profile.png";
 import Chats from "../../components/messages/Chats";
+import AlermBox from "../../components/messages/AlermBox";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+
 
 // get api
 // 나와 메세지를 주고 받은 모든 사람들의 아이디, 이름, 희망직군, 프로필 이미지, 가장 최근에 연락한 메세지 날짜, 읽지 않은 메세지 개수
@@ -52,127 +54,127 @@ const users = [
     lastDate: new Date("2020-01-05"),
     unreadCount: 0,
   },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  {
-    id: 99,
-    name: "김준교",
-    job: "상놈",
-    profile: image,
-    lastDate: new Date("2020-01-05"),
-    unreadCount: 0,
-  },
-  
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+  // {
+  //   id: 99,
+  //   name: "김준교",
+  //   job: "상놈",
+  //   profile: image,
+  //   lastDate: new Date("2020-01-05"),
+  //   unreadCount: 0,
+  // },
+
 
 ];
 // post api
@@ -214,17 +216,21 @@ export default function MessagePage() {
                   <AiOutlineArrowLeft className="bi fs-4 m-0" />
                 </button>
               </div>
-              {users.map((user) => (
-                <MessageUserProfile
-                  key={user.id}
-                  username={user.name}
-                  job={user.job}
-                  profileImage={user.image}
-                  count={user.unreadCount}
-                  isSelected={user.id === selectedId}
-                  onClick={() => MessageUserProfileClickHandler(user.id)}
-                />
-              ))}
+              
+              <div className={styles["user-list"]}>
+                {users.map((user) => (
+                  <MessageUserProfile
+                    key={user.id}
+                    username={user.name}
+                    job={user.job}
+                    profileImage={user.image}
+                    count={user.unreadCount}
+                    isSelected={user.id === selectedId}
+                    onClick={() => MessageUserProfileClickHandler(user.id)}
+                  />
+                ))}
+              </div>
+              <AlermBox count={2}/>
             </div>
             {/* userlist */}
             <div className="row g-0">
@@ -243,7 +249,7 @@ export default function MessagePage() {
                     />
                   ))}
                 </div>
-                <MessageUserProfile/>
+                <AlermBox count={2}/>
 
                 <hr className="d-block d-md-none mt-1 mb-0" />
               </div>
