@@ -46,6 +46,7 @@
 }
 
 .chat-header {
+  display: flex;
   height: 70px;
   border-bottom: 1px solid #dee2e6;
 }
