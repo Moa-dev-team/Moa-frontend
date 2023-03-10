@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Message.module.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -70,10 +70,20 @@ export default function MessagePage() {
 
   const MessageUserProfileClickHandler = (userId) => {
     if (window.innerWidth < 768) {
-      setIsSidebarOpen(!isSidebarOpen);
+      setIsSidebarOpen(false);
     }
     setSelectedId(userId);
   };
+
+  const handleResize = () => {
+    if (window.innerWidth > 767) {
+      setIsSidebarOpen(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+  }, []);
 
   return (
     <React.Fragment>
