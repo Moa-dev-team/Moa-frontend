@@ -1,16 +1,17 @@
 .outlet {
   width: 100%;
-  height: calc(100% - 74.59px);
+  height: 100%;
+  padding-top: 74.59px;
 }
 
 @media screen and (max-width: 768px) {
   .outlet {
-    height: calc(100% - 100.19px);
+    padding-top: 100.19px;
   }
 }
 
 @media screen and (max-width: 425px) {
   .outlet {
-    height: calc(100% - 93.78px);
+    padding-top: calc(100% - 93.78px);
   }
 }
