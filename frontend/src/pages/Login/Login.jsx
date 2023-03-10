@@ -3,7 +3,7 @@ import logo from "../../assets/images/Logo.png";
 import { FcGoogle } from "react-icons/fc";
 import { SiNaver, SiGithub } from "react-icons/si";
 import styles from "./Login.module.css";
-import LoginButton from "../../components/Buttons/LoginButton";
+import LoginButton from "../../components/buttons/LoginButton";
 
 const loginSNS = [
   {
