@@ -1,17 +1,19 @@
-* {
-  font-family: "Nanum Gothic", sans-serif;
-  font-weight: bold;
-}
-
 .box {
   border: 1px solid #d9d9d9;
   border-radius: 10px;
   width: 90%;
+  height: 4rem;
   margin: 0 auto;
   margin-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.alert {
+    margin-left: 1rem;
+    color: var(--color-blue);
+    font-size : 2rem;
 }
 
 .box:hover {
@@ -24,32 +26,9 @@
   transform: scale(1.05);
 }
 
-.image {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  margin: 0.5rem;
-  margin-left: 15px;
-  border: 0.5px solid #d9d9d9;
-  border-radius: 4px;
-}
-
 .userData {
-  display: inline;
-  margin-left: 1.5rem;
-  margin-right: 3rem;
-  margin-top: 0.3rem;
-}
-
-.userData .username,
-.userData .job {
-  margin: 0;
-}
-
-.userData .job {
-  margin-top: 0rem;
-  color: #9da194;
-  font-size: 0.9rem;
+  display: flex;
+  font-size: 1.1rem;
 }
 
 .messageStatusBox {
@@ -64,11 +43,8 @@
 }
 
 @media (max-width: 425px) {
-  .image {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    margin: 0.5rem;
+  .alert {
+    font-size: 2rem;
   }
   .userData {
     display: inline;
@@ -76,7 +52,7 @@
     margin-top: 0.2rem;
     margin-left: 0.2rem;
     margin-right: 0rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   .bedgeBox {
     margin-right: 0.5rem;

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Message.module.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import MessageUserProfile from "../../components/messages/MessageUserProfile";
 import image from "../../assets/images/profile.png";
 import Chats from "../../components/messages/Chats";
+import AlermBox from "../../components/messages/AlermBox";
 import { BiMenu } from "react-icons/bi";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { HiBell } from "react-icons/hi";
 
 // get api
 // 나와 메세지를 주고 받은 모든 사람들의 아이디, 이름, 희망직군, 프로필 이미지, 가장 최근에 연락한 메세지 날짜, 읽지 않은 메세지 개수
@@ -67,8 +69,21 @@ export default function MessagePage() {
   };
 
   const MessageUserProfileClickHandler = (userId) => {
+    if (window.innerWidth < 768) {
+      setIsSidebarOpen(false);
+    }
     setSelectedId(userId);
   };
+
+  const handleResize = () => {
+    if (window.innerWidth > 767) {
+      setIsSidebarOpen(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+  }, []);
 
   return (
     <React.Fragment>
@@ -92,17 +107,24 @@ export default function MessagePage() {
                   <AiOutlineArrowLeft className="bi fs-4 m-0" />
                 </button>
               </div>
-              {users.map((user) => (
-                <MessageUserProfile
-                  key={user.id}
-                  username={user.name}
-                  job={user.job}
-                  profileImage={user.image}
-                  count={user.unreadCount}
-                  isSelected={user.id === selectedId}
-                  onClick={() => MessageUserProfileClickHandler(user.id)}
-                />
-              ))}
+
+              <div className={styles["user-list"]}>
+                {users.map((user) => (
+                  <MessageUserProfile
+                    key={user.id}
+                    username={user.name}
+                    job={user.job}
+                    profileImage={user.image}
+                    count={user.unreadCount}
+                    isSelected={user.id === selectedId}
+                    onClick={() => MessageUserProfileClickHandler(user.id)}
+                  />
+                ))}
+              </div>
+              <AlermBox
+                count={2}
+                onClick={() => MessageUserProfileClickHandler(0)}
+              />
             </div>
             {/* userlist */}
             <div className="row g-0">
@@ -121,12 +143,16 @@ export default function MessagePage() {
                     />
                   ))}
                 </div>
+                <AlermBox
+                  count={2}
+                  onClick={() => MessageUserProfileClickHandler(0)}
+                />
 
                 <hr className="d-block d-md-none mt-1 mb-0" />
               </div>
               <div className="col-12 col-md-7 col-lg-8 col-xl-9">
                 <div className={styles["chat-header"]}>
-                  <div className="d-flex align-items-center py-1">
+                  <div className="d-flex align-items-center">
                     {/* sidebar Toggle */}
                     <div className="d-md-none">
                       <button
@@ -138,27 +164,46 @@ export default function MessagePage() {
                         <BiMenu className="bi fs-4 m-0" />
                       </button>
                     </div>
-                    <div className="position-relative">
-                      <img
-                        src={selectedUser.profile}
-                        className={styles.image}
-                        alt="Sharon Lessman"
-                        width="40"
-                        height="40"
-                      />
-                    </div>
-                    <div className="flex-grow-1">
-                      <strong>{selectedUser.name}</strong>
-                      <div className="text-muted small">{selectedUser.job}</div>
-                    </div>
+                      {selectedId === 0 ? (
+                        <React.Fragment>
+                          <div className="position-relative">
+                            <HiBell className={styles.alert} />
+                          </div>
+                          <div className="flex-grow-1">
+                            <div className="fs-5 my-2">알림</div>
+                          </div>
+                        </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          <div className="position-relative">
+                            <img
+                              src={selectedUser.profile}
+                              className={styles.image}
+                              alt="Sharon Lessman"
+                              width="40"
+                              height="40"
+                            />
+                          </div>
+                          <div className="flex-grow-1">
+                            <strong>{selectedUser.name}</strong>
+                            <div className="text-muted small">
+                              {selectedUser.job}
+                            </div>
+                          </div>
+                        </React.Fragment>
+                      )}
                   </div>
                 </div>
                 <div className="position-relative">
-                  <Chats
-                    id={selectedId}
-                    image={selectedUser.profile}
-                    name={selectedUser.name}
-                  />
+                  {selectedId === 0 ? (
+                    <Chats id={selectedId} image={image} name="알림" />
+                  ) : (
+                    <Chats
+                      id={selectedId}
+                      image={selectedUser.profile}
+                      name={selectedUser.name}
+                    />
+                  )}
                 </div>
               </div>
             </div>
