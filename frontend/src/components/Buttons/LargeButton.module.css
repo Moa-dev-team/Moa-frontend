@@ -1,5 +1,5 @@
 .button {
-  margin-left: 2.4rem;
+  margin: 0 2rem;
   padding: 0.5rem 2.5rem;
   font-size: 1.25rem;
   font-weight: 800;
@@ -12,4 +12,11 @@
 
 .button:hover {
   filter: brightness(1.2);
+}
+
+@media screen and (max-width: 425px) {
+  .button {
+    margin: 0;
+    width: 90%;
+  }
 }
