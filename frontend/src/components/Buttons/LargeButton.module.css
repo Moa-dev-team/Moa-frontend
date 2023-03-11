@@ -13,3 +13,10 @@
 .button:hover {
   filter: brightness(1.2);
 }
+
+@media screen and (max-width: 425px) {
+  .button {
+    margin: 0;
+    width: 90%;
+  }
+}
