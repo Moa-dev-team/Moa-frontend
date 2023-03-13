@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import SideBar from "../../components/project/SideBar";
+import styles from "./Project.module.css";
 
 export default function Project() {
+  const [categories, setCategories] = useState([]);
+  const handleCategories = (category) => {
+    if (categories.includes(category)) {
+      setCategories((prev) => prev.filter((c) => c !== category));
+    } else {
+      setCategories((prev) => [...prev, category]);
+    }
+  };
+
   return (
-    <>
-      <SideBar />
-      projects
-    </>
+    <div className={styles.page}>
+      <SideBar onClick={handleCategories} />
+      {categories}
+    </div>
   );
 }

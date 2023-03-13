@@ -1,0 +1,12 @@
+.category {
+  padding: 2rem 3rem;
+}
+
+.list {
+  margin-bottom: 2rem;
+}
+
+.category__name {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
