@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SideBar.module.css";
-import SideBarItem from "./SideBarItem";
+import SideBarList from "./SideBarList";
 
 const categories = [
   {
@@ -48,15 +48,12 @@ const categories = [
 export default function SideBar({ onClick }) {
   return (
     <ul className={styles.category}>
-      {categories.map((c, index) => (
-        <li className={styles.list} key={index}>
-          <p className={styles.category__name}>{c.category}</p>
-          <ul>
-            {c.list.map((item, index) => (
-              <SideBarItem key={index} item={item} onClick={onClick} />
-            ))}
-          </ul>
-        </li>
+      {categories.map((categoryItems, index) => (
+        <SideBarList
+          key={index}
+          categoryItems={categoryItems}
+          onClick={onClick}
+        />
       ))}
     </ul>
   );
