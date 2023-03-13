@@ -15,7 +15,10 @@ export default function Project() {
   return (
     <div className={styles.page}>
       <SideBar onClick={handleCategories} />
-      {categories}
+      <div className={styles.main}>
+        <aside>{categories}</aside>
+        <section>project</section>
+      </div>
     </div>
   );
 }
