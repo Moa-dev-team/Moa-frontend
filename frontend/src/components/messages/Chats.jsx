@@ -39,9 +39,13 @@ export default function Chats({ id, name, image }) {
     setChatMessages([...chatMessages, message]);
   };
 
+  if (id == 0) {
+    console.log("alerm chat 입니다.")
+  }
+
   return (
     <React.Fragment>
-      <div className={`${styles["chat-messages"]} p-4`}>
+      <div className={`${styles["chat-messages"]} p-4 ${id===0 && styles["alerm-chat"]}`}>
         {chatMessages.map((message, index) => {
           if (myId === message.id)
             return (
@@ -66,9 +70,9 @@ export default function Chats({ id, name, image }) {
         <div ref={messagesEndRef}></div>
       </div>
       <div
-        className={`${styles["flex-grow-0"]} ${styles["py-3"]} ${styles["px-4"]} ${styles["border-top"]}`}
+        className={`${styles["flex-grow-0"]}`}
       >
-        <SendMessageForm onSendMessage={handleSendMessage} />
+        {id != 0 && <SendMessageForm onSendMessage={handleSendMessage} />}
       </div>
     </React.Fragment>
   );
