@@ -3,7 +3,7 @@ import styles from "./SideBarList.module.css";
 import SideBarItem from "./SideBarItem";
 import { IoIosArrowUp } from "react-icons/io";
 
-export default function SideBarList({ categoryItems, onClick }) {
+export default function SideBarList({ categoryItems, onClick, categoryList }) {
   const [toggle, setToggle] = useState(true);
   const handleClick = () => {
     setToggle((prev) => !prev);
@@ -18,7 +18,12 @@ export default function SideBarList({ categoryItems, onClick }) {
       />
       <ul className={toggle ? styles.category__list : styles.category__hidden}>
         {categoryItems.list.map((item, index) => (
-          <SideBarItem key={index} item={item} onClick={onClick} />
+          <SideBarItem
+            key={index}
+            item={item}
+            onClick={onClick}
+            categoryList={categoryList}
+          />
         ))}
       </ul>
     </li>

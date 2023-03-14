@@ -1,17 +1,18 @@
 import React from "react";
 import styles from "./SideBarItem.module.css";
 
-export default function SideBarItem({ item, onClick }) {
+export default function SideBarItem({ item, onClick, categoryList }) {
   return (
     <li className={styles.list}>
-      <label htmlFor={item} className={styles.label}>
-        {item}
+      <label htmlFor={item.text} className={styles.label}>
+        {item.text}
       </label>
       <input
         className={styles.checkbox}
-        onClick={() => onClick(item)}
+        onChange={() => onClick(item.text)}
         type="checkbox"
-        id={item}
+        checked={categoryList.includes(item.text) ? true : false}
+        id={item.text}
       />
     </li>
   );
