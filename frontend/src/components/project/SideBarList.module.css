@@ -15,7 +15,7 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.4s ease;
 }
 
 .hidden {
@@ -23,9 +23,13 @@
 }
 
 .category__list {
+  max-height: 100vh;
   overflow: hidden;
+  transition: all 0.4s ease;
 }
 
 .category__hidden {
-  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
 }

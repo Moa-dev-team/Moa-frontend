@@ -16,11 +16,7 @@ export default function SideBarList({ categoryItems, onClick }) {
         className={`${styles.arrow} ${toggle ? "" : styles.hidden}`}
         onClick={handleClick}
       />
-      <ul
-        className={`${styles.category__list} ${
-          toggle ? "" : styles.category__hidden
-        }`}
-      >
+      <ul className={toggle ? styles.category__list : styles.category__hidden}>
         {categoryItems.list.map((item, index) => (
           <SideBarItem key={index} item={item} onClick={onClick} />
         ))}
