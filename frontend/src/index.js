@@ -13,6 +13,7 @@ import Login from "./pages/Login/Login";
 import Message from "./pages/Message/Message";
 import MyPage from "./pages/MyPage/MyPage";
 import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
+import NewProject from "./pages/NewProject/NewProject";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "/projects", element: <Project /> },
       { path: "/projects/:id", element: <ProjectDetail /> },
+      { path: "/projects/new-project", element: <NewProject /> },
       { path: "/studies", element: <Study /> },
       { path: "/users", element: <User /> },
       { path: "/login", element: <Login /> },

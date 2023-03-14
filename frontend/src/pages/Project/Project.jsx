@@ -4,6 +4,7 @@ import styles from "./Project.module.css";
 import { v4 as uuid } from "uuid";
 import SmallButton from "../../components/buttons/SmallButton";
 import CategoryTag from "../../components/project/CategoryTag";
+import { useNavigate } from "react-router-dom";
 
 const categoryData = [
   {
@@ -62,6 +63,7 @@ const categoryData = [
 ];
 
 export default function Project() {
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const handleCategories = (category) => {
     if (categories.includes(category)) {
@@ -69,6 +71,9 @@ export default function Project() {
     } else {
       setCategories((prev) => [...prev, category]);
     }
+  };
+  const handleWriteClick = () => {
+    navigate("/projects/new-project");
   };
 
   return (
@@ -90,7 +95,7 @@ export default function Project() {
               />
             ))}
           </ul>
-          <SmallButton text="글쓰기" />
+          <SmallButton text="글쓰기" onClick={handleWriteClick} />
         </aside>
         <section>project</section>
       </div>
@@ -102,7 +107,6 @@ function getColor(t) {
   for (const category of categoryData) {
     for (const c of category.list) {
       if (c.text === t) {
-        console.log(c.color);
         return c.color;
       }
     }

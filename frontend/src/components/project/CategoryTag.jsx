@@ -9,7 +9,7 @@ export default function CategoryTag({ category, onClick, color }) {
       onClick={() => onClick(category)}
       style={{ backgroundColor: color }}
     >
-      <span>{category}</span>
+      <span className={styles.text}>{category}</span>
       <FiX className={styles.cancel} />
     </li>
   );
