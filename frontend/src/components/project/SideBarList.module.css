@@ -1,0 +1,35 @@
+.list {
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.category__name {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.hidden {
+  transform: rotate(180deg);
+}
+
+.category__list {
+  max-height: 100vh;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.category__hidden {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
