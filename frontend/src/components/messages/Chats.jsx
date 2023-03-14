@@ -34,6 +34,10 @@ export default function Chats({ id, name, image }) {
     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
   }, [chatMessages]);
 
+  useEffect(() => {
+    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+  })
+
   const handleSendMessage = (message) => {
     // Add the new message to the chatMessages state
     setChatMessages([...chatMessages, message]);
@@ -63,7 +67,7 @@ export default function Chats({ id, name, image }) {
             />
           );
         })}
-        <div ref={messagesEndRef}></div>
+        <div id="messagesEnd" ref={messagesEndRef}></div>
       </div>
       <div
         className={`${styles["flex-grow-0"]}`}
