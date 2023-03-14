@@ -5,6 +5,7 @@ import { v4 as uuid } from "uuid";
 import SmallButton from "../../components/buttons/SmallButton";
 import CategoryTag from "../../components/project/CategoryTag";
 import { useNavigate } from "react-router-dom";
+import ToggleButton from "../../components/project/ToggleButton";
 
 const categoryData = [
   {
@@ -65,6 +66,8 @@ const categoryData = [
 export default function Project() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
+  const [recruit, setRecruit] = useState(true);
+
   const handleCategories = (category) => {
     if (categories.includes(category)) {
       setCategories((prev) => prev.filter((c) => c !== category));
@@ -75,6 +78,9 @@ export default function Project() {
   const handleWriteClick = () => {
     navigate("/projects/new-project");
   };
+  const handleRecruit = () => {
+    setRecruit((prev) => !prev);
+  };
 
   return (
     <div className={styles.page}>
@@ -84,19 +90,22 @@ export default function Project() {
         categories={categoryData}
       />
       <div className={styles.main}>
-        <aside className={styles.header}>
-          <ul className={styles.list}>
-            {categories.map((category) => (
-              <CategoryTag
-                key={uuid()}
-                category={category}
-                color={getColor(category)}
-                onClick={handleCategories}
-              />
-            ))}
-          </ul>
-          <SmallButton text="글쓰기" onClick={handleWriteClick} />
-        </aside>
+        <section className={styles.header}>
+          <aside className={styles.header__upper}>
+            <ul className={styles.list}>
+              {categories.map((category) => (
+                <CategoryTag
+                  key={uuid()}
+                  category={category}
+                  color={getColor(category)}
+                  onClick={handleCategories}
+                />
+              ))}
+            </ul>
+            <SmallButton text="글쓰기" onClick={handleWriteClick} />
+          </aside>
+          <ToggleButton recruit={recruit} onClick={handleRecruit} />
+        </section>
         <section>project</section>
       </div>
     </div>
