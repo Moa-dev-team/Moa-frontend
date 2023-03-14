@@ -1,0 +1,17 @@
+.form-box {
+  border: 1px solid #d9d9d9;
+  border-top: none;
+}
+
+.text-area {
+  border: none;
+  border-radius: 0;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  background-color: #fff;
+  resize: none;
+}
+
+.text-area:focus {
+  outline: none;
+}
