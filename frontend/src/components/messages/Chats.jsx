@@ -68,7 +68,7 @@ export default function Chats({ id, name, image }) {
       <div
         className={`${styles["flex-grow-0"]}`}
       >
-        {id != 0 && <SendMessageForm onSendMessage={handleSendMessage} />}
+        {id !== 0 && <SendMessageForm onSendMessage={handleSendMessage} />}
       </div>
     </React.Fragment>
   );

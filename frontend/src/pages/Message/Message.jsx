@@ -145,6 +145,7 @@ export default function MessagePage() {
                 </div>
                 <AlermBox
                   count={2}
+                  isSelected={selectedId===0}
                   onClick={() => MessageUserProfileClickHandler(0)}
                 />
 

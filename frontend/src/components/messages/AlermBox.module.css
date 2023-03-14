@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .alert {
