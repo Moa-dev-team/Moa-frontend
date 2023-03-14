@@ -39,10 +39,6 @@ export default function Chats({ id, name, image }) {
     setChatMessages([...chatMessages, message]);
   };
 
-  if (id == 0) {
-    console.log("alerm chat 입니다.")
-  }
-
   return (
     <React.Fragment>
       <div className={`${styles["chat-messages"]} p-4 ${id===0 && styles["alerm-chat"]}`}>
