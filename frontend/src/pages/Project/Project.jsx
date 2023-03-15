@@ -6,6 +6,7 @@ import SmallButton from "../../components/buttons/SmallButton";
 import CategoryTag from "../../components/project/CategoryTag";
 import { useNavigate } from "react-router-dom";
 import ToggleButton from "../../components/project/ToggleButton";
+import ProjectList from "../../components/project/ProjectList";
 
 const categoryData = [
   {
@@ -106,7 +107,7 @@ export default function Project() {
           </aside>
           <ToggleButton recruit={recruit} onClick={handleRecruit} />
         </section>
-        <section>project</section>
+        <ProjectList />
       </div>
     </div>
   );
