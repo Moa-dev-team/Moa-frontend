@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./ProjectCard.module.css";
 
 export default function ProjectCard({
   project: {
+    id,
     title,
     description,
     field,
@@ -13,8 +15,13 @@ export default function ProjectCard({
     recruitment,
   },
 }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/projects/${id}`);
+  };
+
   return (
-    <li className={styles.card}>
+    <li className={styles.card} onClick={handleClick}>
       {!recruitment && <div className={styles.closed}></div>}
       <div className={styles.header}>
         <h3 className={styles.title}>{title}</h3>
