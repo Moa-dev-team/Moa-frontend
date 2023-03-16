@@ -41,3 +41,44 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.select {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.select__control {
+  border-radius: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.select__control:hover {
+  border-color: #6c757d;
+}
+
+.select__control--is-focused {
+  border-color: #6c757d;
+  box-shadow: 0 0 0 1px #6c757d;
+}
+
+.select__menu {
+  border-radius: 5px;
+}
+
+.select__option {
+  transition: background-color 0.3s;
+}
+
+.select__option:hover {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.select__option--is-focused {
+  background-color: #f0f0f0;
+}
+
+.select__option--is-selected {
+  background-color: white;
+  color: black;
+}
