@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./NewProject.module.css";
 import SmallButtonMobile from "../../components/buttons/SmallButtonMobile";
+import AutoExpandingTextArea from "../../components/newproject/AutoExpandingTextArea";
 
 import Select from "react-select";
 
@@ -231,12 +232,7 @@ export default function NewProject() {
             프로젝트 소개
           </label>
           <div className="">
-            <textarea
-              type="text"
-              className={`form-control ${styles["text-area"]}`}
-              id="introduce"
-              placeholder="프로젝트 대해 소개해주세요."
-            />
+            <AutoExpandingTextArea id="introduce" placeholder="프로젝트 대해 소개해주세요."/>
           </div>
         </div>
         <div className="form-group row">
@@ -244,12 +240,7 @@ export default function NewProject() {
             요구사항
           </label>
           <div className="">
-            <textarea
-              type="text"
-              className={`form-control ${styles["text-area"]}`}
-              id="introduce"
-              placeholder="프로젝트 대해 소개해주세요."
-            />
+            <AutoExpandingTextArea id="need" placeholder="요구사항을 입력해주세요."/>
           </div>
         </div>
         <div className={styles["button-line"]}>
