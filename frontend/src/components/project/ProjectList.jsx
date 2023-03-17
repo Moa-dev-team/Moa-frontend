@@ -30,18 +30,11 @@ export default function ProjectList({ categories, recruitment }) {
 }
 
 function filterProjects(categories, projects, recruitment) {
-  if (categories.length === 0) {
-    return filterRecruitment(recruitment, projects);
-  }
-  const filterdProjects = filterRecruitment(recruitment, projects);
-  return filterdProjects.filter((project) =>
-    categories.includes(project.skill)
-  );
-}
+  return projects.filter((project) => {
+    const isRecruitmentMatch = recruitment ? project.recruitment : true;
+    const isCategoryMatch =
+      categories.length === 0 || categories.includes(project.skill);
 
-function filterRecruitment(recruitment, projects) {
-  if (recruitment) {
-    return projects.filter((project) => project.recruitment);
-  }
-  return projects;
+    return isRecruitmentMatch && isCategoryMatch;
+  });
 }
