@@ -13,3 +13,14 @@
   filter: brightness(0.8);
 }
 
+@media (max-width: 768px) {
+  .button {
+    font-size: 1.3rem;
+    height: 3rem;
+    border-radius: 40px;
+    padding: 0.1rem;
+    width: 100%;
+    box-sizing: border-box; 
+    margin: 0.3rem 0;
+  }
+}

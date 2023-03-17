@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./SmallButton.module.css";
+import styles from './SmallButtonMobile.module.css'
 
-export default function SmallButton({ text, onClick, backgroundColor, textColor }) {
+export default function SmallButtonMobile({ text, onClick, backgroundColor, textColor }) {
   const color = {
     backgroundColor : backgroundColor,
     color : textColor,
