@@ -43,5 +43,5 @@ function filterRecruitment(recruitment, projects) {
   if (recruitment) {
     return projects.filter((project) => project.recruitment);
   }
-  return projects.filter((project) => !project.recruitment);
+  return projects;
 }
