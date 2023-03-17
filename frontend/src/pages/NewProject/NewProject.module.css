@@ -69,6 +69,7 @@
   margin-right: 1rem;
   display: inline-block;
   width: 30%;
+  white-space: nowrap;
 }
 
 .custom-select {
