@@ -3,7 +3,7 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 import styles from "./ProjectList.module.css";
 
-export default function ProjectList({ categories }) {
+export default function ProjectList({ categories, recruitment }) {
   const {
     isLoading,
     error,
@@ -18,18 +18,30 @@ export default function ProjectList({ categories }) {
       {error && <p>something is wrong!</p>}
       {projects && (
         <ul className={styles.list}>
-          {filterProjects(categories, projects.data).map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          {filterProjects(categories, projects.data, recruitment).map(
+            (project) => (
+              <ProjectCard key={project.id} project={project} />
+            )
+          )}
         </ul>
       )}
     </>
   );
 }
 
-function filterProjects(categories, projects) {
+function filterProjects(categories, projects, recruitment) {
   if (categories.length === 0) {
-    return projects;
+    return filterRecruitment(recruitment, projects);
   }
-  return projects.filter((project) => categories.includes(project.skill));
+  const filterdProjects = filterRecruitment(recruitment, projects);
+  return filterdProjects.filter((project) =>
+    categories.includes(project.skill)
+  );
+}
+
+function filterRecruitment(recruitment, projects) {
+  if (recruitment) {
+    return projects.filter((project) => project.recruitment);
+  }
+  return projects.filter((project) => !project.recruitment);
 }
