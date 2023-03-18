@@ -1,9 +1,23 @@
 .page {
+  position: relative;
   display: flex;
 }
 
 .main {
+  position: relative;
   width: 100%;
+}
+
+.menuBtn {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.menuBtn:hover {
+  color: var(--color-blue);
 }
 
 .header {

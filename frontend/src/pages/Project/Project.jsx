@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../../components/project/SideBar";
 import styles from "./Project.module.css";
 import { v4 as uuid } from "uuid";
@@ -7,6 +7,7 @@ import CategoryTag from "../../components/project/CategoryTag";
 import { useNavigate } from "react-router-dom";
 import ToggleButton from "../../components/project/ToggleButton";
 import ProjectList from "../../components/project/ProjectList";
+import { BiMenu } from "react-icons/bi";
 
 const categoryData = [
   {
@@ -68,7 +69,14 @@ export default function Project() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [recruit, setRecruit] = useState(true);
+  const [sideBar, setSideBar] = useState(
+    window.innerWidth >= 768 ? true : false
+  );
 
+  const screenChange = (event) => {
+    const matches = event.matches;
+    setSideBar(matches);
+  };
   const handleCategories = (category) => {
     if (categories.includes(category)) {
       setCategories((prev) => prev.filter((c) => c !== category));
@@ -82,15 +90,31 @@ export default function Project() {
   const handleRecruit = () => {
     setRecruit((prev) => !prev);
   };
+  const handleSideBar = () => {
+    setSideBar((prev) => !prev);
+  };
+
+  useEffect(() => {
+    const mql = window.matchMedia("screen and (min-width:768px)");
+    mql.addEventListener("change", screenChange);
+
+    return () => mql.removeEventListener("change", screenChange);
+  }, []);
 
   return (
     <div className={styles.page}>
-      <SideBar
-        onClick={handleCategories}
-        categoryList={categories}
-        categories={categoryData}
-      />
+      {sideBar && (
+        <SideBar
+          onClick={handleCategories}
+          categoryList={categories}
+          categories={categoryData}
+          toggle={handleSideBar}
+        />
+      )}
       <div className={styles.main}>
+        {!sideBar && (
+          <BiMenu className={styles.menuBtn} onClick={handleSideBar} />
+        )}
         <section className={styles.header}>
           <aside className={styles.header__upper}>
             <ul className={styles.list}>
