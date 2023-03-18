@@ -70,7 +70,7 @@ export default function Project() {
   const [categories, setCategories] = useState([]);
   const [recruit, setRecruit] = useState(true);
   const [sideBar, setSideBar] = useState(
-    window.innerWidth >= 768 ? true : false
+    window.innerWidth > 768 ? true : false
   );
 
   const screenChange = (event) => {
@@ -95,7 +95,7 @@ export default function Project() {
   };
 
   useEffect(() => {
-    const mql = window.matchMedia("screen and (min-width:768px)");
+    const mql = window.matchMedia("screen and (min-width:769px)");
     mql.addEventListener("change", screenChange);
 
     return () => mql.removeEventListener("change", screenChange);
@@ -127,7 +127,9 @@ export default function Project() {
                 />
               ))}
             </ul>
-            <SmallButton text="글쓰기" onClick={handleWriteClick} />
+            <div className={styles.btnContainer}>
+              <SmallButton text="글쓰기" onClick={handleWriteClick} />
+            </div>
           </aside>
           <ToggleButton recruit={recruit} onClick={handleRecruit} />
         </section>

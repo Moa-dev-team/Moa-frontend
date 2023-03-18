@@ -37,5 +37,40 @@
 .list {
   display: flex;
   margin: 0;
+  margin-right: 0.4rem;
   padding: 0;
+  overflow: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .menuBtn {
+    top: 1rem;
+  }
+
+  .header__upper {
+    margin-left: 4rem;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .menuBtn {
+    top: 0.6rem;
+  }
+
+  .header__upper {
+    flex-direction: column-reverse;
+    margin-top: 0.8rem;
+    margin-left: 1rem;
+  }
+
+  .list {
+    width: 100%;
+    margin-top: 0.4rem;
+  }
+
+  .btnContainer {
+    width: 100%;
+    padding-left: 2.6rem;
+  }
 }

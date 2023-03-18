@@ -12,7 +12,7 @@ export default function SideBar({ onClick, categoryList, categories, toggle }) {
   };
 
   useEffect(() => {
-    const mql = window.matchMedia("screen and (max-width:768px)");
+    const mql = window.matchMedia("screen and (min-width:768px)");
     mql.addEventListener("change", screenChange);
 
     return () => mql.removeEventListener("change", screenChange);
