@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
+import { useQuery } from "@tanstack/react-query";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./NewProject.module.css";
 import SmallButtonMobile from "../../components/buttons/SmallButtonMobile";
@@ -7,62 +8,17 @@ import AutoExpandingTextArea from "../../components/newproject/AutoExpandingText
 
 import Select from "react-select";
 
-const categoryData = [
-  {
-    category: "프론트엔드",
-    list: [
-      { text: "JavaScript", color: "#ffd699" },
-      { text: "TypeScript", color: "#99c0ff" },
-      { text: "React", color: "#99eaff" },
-      { text: "Vue", color: "#c3edab" },
-      { text: "Svelte", color: "#ff99ad" },
-      { text: "Nextjs", color: "#cbd3d6" },
-    ],
-  },
-  {
-    category: "백엔드",
-    list: [
-      { text: "Java", color: "#90ee90" },
-      { text: "Spring", color: "#65c368" },
-      { text: "Nodejs", color: "#487047" },
-      { text: "Nestjs", color: "#ff7f8a" },
-      { text: "Go", color: "#7fecff" },
-      { text: "Kotlin", color: "#7f9bff" },
-      { text: "Express", color: "#90ee90" },
-      { text: "MySQL", color: "#4b72a8" },
-      { text: "MongoDB", color: "#4b72a8" },
-      { text: "Python", color: "#4b72a8" },
-      { text: "Django", color: "#c7888d" },
-      { text: "php", color: "#aad0ef" },
-      { text: "GraphQL", color: "#e7b2cd" },
-      { text: "Firebase", color: "#f29886" },
-    ],
-  },
-  {
-    category: "모바일",
-    list: [
-      { text: "Flutter", color: "#40cce2" },
-      { text: "Swift", color: "#ffa07a" },
-      { text: "Kotlin", color: "#7f9bff" },
-      { text: "ReactNative", color: "#99eaff" },
-      { text: "Unity", color: "#bdbdbd" },
-    ],
-  },
-  {
-    category: "기타",
-    list: [
-      { text: "AWS", color: "#ffa07a" },
-      { text: "Kubernetes", color: "#7ad1ff" },
-      { text: "Docker", color: "#96ebff" },
-      { text: "Git", color: "#ff907a" },
-      { text: "Figma", color: "#ee8bd1" },
-      { text: "Zeplin", color: "#f2b787" },
-      { text: "Jest", color: "#ce8e8d" },
-      { text: "C", color: "#40cce2" },
-    ],
-  },
-];
+
 export default function NewProject() {
+
+  const {
+    isLoading,
+    error,
+    data: categoryData,
+  } = useQuery(["categoryData"], async () =>
+    fetch("/data/category.json").then((res) => res.json())
+  );
+
   const [startDate, setStartDate] = useState(new Date());
   const monthCount = [
     { value: "1-", label: "1달 미만" },
@@ -85,7 +41,7 @@ export default function NewProject() {
     { value: "비대면", label: "비대면" },
   ];
 
-  const optionsWithCategory = categoryData.map((category) => ({
+  const optionsWithCategory = categoryData && categoryData.data.map((category) => ({
     label: category.category,
     options: category.list.map((item) => ({
       label: item.text,
@@ -94,7 +50,7 @@ export default function NewProject() {
     })),
   }));
 
-  const optionsOnlyCategory = categoryData.map((category) => ({
+  const optionsOnlyCategory = categoryData && categoryData.data.map((category) => ({
     label: category.category,
     value: category.category,
   }));
@@ -123,8 +79,11 @@ export default function NewProject() {
       fontSize: "0.7rem",
     }),
   };
-
+  
   return (
+    <>
+    {isLoading && <p>isLoding...</p>}
+    {error && <p>error</p>}
     <div className={`container ${styles.box}`}>
       <form>
         <div className="form-group row">
@@ -257,5 +216,6 @@ export default function NewProject() {
         </div>
       </form>
     </div>
+    </>
   );
 }
