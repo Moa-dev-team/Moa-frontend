@@ -69,14 +69,8 @@ export default function Project() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [recruit, setRecruit] = useState(true);
-  const [sideBar, setSideBar] = useState(
-    window.innerWidth > 768 ? true : false
-  );
+  const [mQuery, setMQuery] = useState(window.innerWidth > 768);
 
-  const screenChange = (event) => {
-    const matches = event.matches;
-    setSideBar(matches);
-  };
   const handleCategories = (category) => {
     if (categories.includes(category)) {
       setCategories((prev) => prev.filter((c) => c !== category));
@@ -90,8 +84,9 @@ export default function Project() {
   const handleRecruit = () => {
     setRecruit((prev) => !prev);
   };
-  const handleSideBar = () => {
-    setSideBar((prev) => !prev);
+  const screenChange = (event) => {
+    const matches = event.matches;
+    setMQuery(matches);
   };
 
   useEffect(() => {
@@ -103,18 +98,16 @@ export default function Project() {
 
   return (
     <div className={styles.page}>
-      {sideBar && (
+      {mQuery && (
         <SideBar
           onClick={handleCategories}
           categoryList={categories}
           categories={categoryData}
-          toggle={handleSideBar}
+          query={mQuery}
         />
       )}
       <div className={styles.main}>
-        {!sideBar && (
-          <BiMenu className={styles.menuBtn} onClick={handleSideBar} />
-        )}
+        {!mQuery && <BiMenu className={styles.menuBtn} />}
         <section className={styles.header}>
           <aside className={styles.header__upper}>
             <ul className={styles.list}>
