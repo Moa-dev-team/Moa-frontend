@@ -1,3 +1,19 @@
+.container {
+  position: absolute;
+  left: 0;
+  transition: all 0.4s ease;
+}
+
+.container__hidden {
+  position: absolute;
+  left: -100%;
+  transition: all 0.4s ease;
+}
+
+.wide {
+  position: relative;
+}
+
 .category {
   position: relative;
   padding: 2rem;
