@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./SendMessageForm.module.css";
 import { AiOutlineSend } from "react-icons/ai";
 
@@ -6,18 +6,21 @@ const myId = 0;
 
 export default function SendMessageForm({ onSendMessage }) {
   const [message, setMessage] = useState("");
+  const textareaRef = useRef()
 
   const handleSubmit = (event) => {
     if (message.length === 0) return;
     event.preventDefault();
     onSendMessage({ id: myId, text: message, date: new Date() });
     setMessage("");
+    textareaRef.current.focus();
   };
   return (
     <React.Fragment>
       <form className={`bg-light ${styles["form-box"]}`} onSubmit={handleSubmit}>
         <div className="input-group">
           <textarea
+            ref={textareaRef}
             type="text"
             placeholder="메세지를 입력해주세요"
             aria-describedby="button-addon2"
