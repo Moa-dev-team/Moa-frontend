@@ -18,7 +18,7 @@ export default function ChatLeft({text, image, name, date}) {
           />
           <div className={styles.name}>{name}</div>
         </div>
-        <div className="d-flex align-items-center justify-content-center">
+        <div className="">
           <div className={styles.text}>{text}</div>
         </div>
       </div>

@@ -41,6 +41,7 @@ export default function Chats({ id, name, image }) {
   const handleSendMessage = (message) => {
     // Add the new message to the chatMessages state
     setChatMessages([...chatMessages, message]);
+    console.log(message);
   };
 
   return (
