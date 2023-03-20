@@ -1,9 +1,23 @@
 .page {
+  position: relative;
   display: flex;
 }
 
 .main {
-  width: 100%;
+  position: relative;
+  width: calc(100% - 236px);
+}
+
+.menuBtn {
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.menuBtn:hover {
+  color: var(--color-blue);
 }
 
 .header {
@@ -22,6 +36,48 @@
 
 .list {
   display: flex;
+  width: calc(100% - 100px);
   margin: 0;
+  margin-right: 0.4rem;
   padding: 0;
+  overflow-x: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    width: 100%;
+  }
+
+  .menuBtn {
+    top: 1rem;
+  }
+
+  .header__upper {
+    margin-left: 4rem;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .menuBtn {
+    top: 0.6rem;
+  }
+
+  .header__upper {
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 0.8rem;
+    margin-left: 1rem;
+    border: none;
+  }
+
+  .list {
+    width: 80%;
+    height: 2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .btnContainer {
+    width: 100%;
+  }
 }

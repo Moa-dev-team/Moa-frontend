@@ -1,3 +1,41 @@
+.container {
+  position: absolute;
+  left: 0;
+  transition: all 0.4s ease;
+}
+
+.container__hidden {
+  position: absolute;
+  left: -100%;
+  transition: all 0.4s ease;
+}
+
+.wide {
+  position: relative;
+}
+
 .category {
+  position: relative;
   padding: 2rem;
+  background-color: white;
+  z-index: 10;
+}
+
+.category.mobile {
+  position: absolute;
+  top: 0;
+  padding-top: 3rem;
+  border-right: 1px solid var(--color-gray);
+}
+
+.menuToggleBtn {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.4rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.menuToggleBtn:hover {
+  color: var(--color-blue);
 }

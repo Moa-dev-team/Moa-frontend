@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../../components/project/SideBar";
 import styles from "./Project.module.css";
 import { v4 as uuid } from "uuid";
@@ -7,6 +7,7 @@ import CategoryTag from "../../components/project/CategoryTag";
 import { useNavigate } from "react-router-dom";
 import ToggleButton from "../../components/project/ToggleButton";
 import ProjectList from "../../components/project/ProjectList";
+import { BiMenu } from "react-icons/bi";
 
 const categoryData = [
   {
@@ -68,6 +69,8 @@ export default function Project() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [recruit, setRecruit] = useState(true);
+  const [mQuery, setMQuery] = useState(window.innerWidth > 768);
+  const [sideBar, setSideBar] = useState(mQuery);
 
   const handleCategories = (category) => {
     if (categories.includes(category)) {
@@ -82,6 +85,21 @@ export default function Project() {
   const handleRecruit = () => {
     setRecruit((prev) => !prev);
   };
+  const handleSideBar = () => {
+    setSideBar((prev) => !prev);
+  };
+  const screenChange = (event) => {
+    const matches = event.matches;
+    setMQuery(matches);
+    setSideBar(matches);
+  };
+
+  useEffect(() => {
+    const mql = window.matchMedia("screen and (min-width:769px)");
+    mql.addEventListener("change", screenChange);
+
+    return () => mql.removeEventListener("change", screenChange);
+  }, []);
 
   return (
     <div className={styles.page}>
@@ -89,8 +107,14 @@ export default function Project() {
         onClick={handleCategories}
         categoryList={categories}
         categories={categoryData}
+        query={mQuery}
+        sideBar={sideBar}
+        handleSideBar={handleSideBar}
       />
       <div className={styles.main}>
+        {!mQuery && (
+          <BiMenu className={styles.menuBtn} onClick={handleSideBar} />
+        )}
         <section className={styles.header}>
           <aside className={styles.header__upper}>
             <ul className={styles.list}>
@@ -103,7 +127,9 @@ export default function Project() {
                 />
               ))}
             </ul>
-            <SmallButton text="글쓰기" onClick={handleWriteClick} />
+            <div className={styles.btnContainer}>
+              <SmallButton text="글쓰기" onClick={handleWriteClick} />
+            </div>
           </aside>
           <ToggleButton recruit={recruit} onClick={handleRecruit} />
         </section>
