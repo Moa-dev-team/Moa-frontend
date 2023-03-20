@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ChatLeft.module.css";
+import NewLineText from "./NewLineText";
 
 export default function ChatLeft({text, image, name, date}) {
   return (
@@ -19,7 +20,7 @@ export default function ChatLeft({text, image, name, date}) {
           <div className={styles.name}>{name}</div>
         </div>
         <div className="">
-          <div className={styles.text}>{text}</div>
+          <NewLineText text={text}/>
         </div>
       </div>
     </React.Fragment>
