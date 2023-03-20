@@ -10,14 +10,6 @@
     padding-right: 5rem;
 }
 
-.text {
-    background-color: white;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 0.25rem;
-    flex-shrink: 1;
-}
-
 .name {
     white-space: nowrap;
     text-align: center;

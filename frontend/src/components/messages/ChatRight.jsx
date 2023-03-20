@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ChatRight.module.css";
+import NewLineText from "./NewLineText";
 
 export default function ChatRight({ text, image, name, date }) {
   return (
@@ -18,8 +19,8 @@ export default function ChatRight({ text, image, name, date }) {
           />
           <div className={styles.name}>{name}</div>
         </div>
-        <div className="d-flex align-items-center justify-content-center">
-        <div className={styles.text}>{text}</div>
+        <div className="">
+        <NewLineText text={text}/>
         </div>
       </div>
     </React.Fragment>

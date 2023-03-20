@@ -23,7 +23,7 @@ const messages = [
   { id: 0, text: "안녕하세요", date: new Date("2020-01-01") },
   { id: 2, text: "안녕못한데?", date: new Date("2020-01-02") },
   { id: 0, text: "안녕하세요", date: new Date("2020-01-01") },
-  { id: 2, text: "안녕못한데?", date: new Date("2020-01-02") },
+  { id: 2, text: "안녕못한데?\n응 못해", date: new Date("2020-01-02") },
 ];
 
 export default function Chats({ id, name, image }) {

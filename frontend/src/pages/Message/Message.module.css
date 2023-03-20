@@ -1,10 +1,8 @@
 .user-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 60px;
   font-size: 1.5rem;
-  padding-top: 10px;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
   color: #9da194;
 }
 
