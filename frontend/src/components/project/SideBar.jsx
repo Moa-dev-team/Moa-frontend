@@ -13,7 +13,8 @@ export default function SideBar({
 }) {
   const sideBarEl = useRef();
   const closeSideBar = (e) => {
-    if (sideBar && !sideBarEl.current.contains(e.target)) handleSideBar();
+    if (sideBar && !query && !sideBarEl.current.contains(e.target))
+      handleSideBar();
   };
 
   useEffect(() => {
