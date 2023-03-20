@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Message.module.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -58,11 +58,32 @@ const users = [
 // post api
 // MessageUserProfile 을 클릭하여 읽지 않은 메세지 갱신
 
+function useClickOutside(ref, callback) {
+  const handleClickOutside = (event) => {
+    if (ref.current && !ref.current.contains(event.target)) {
+      callback();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref, callback]);
+}
+
 export default function MessagePage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   // users 가 존재하지 않을 경우 예외 케이스 만들어야 함
   const [selectedId, setSelectedId] = useState(users[0].id);
   const selectedUser = users.find((user) => user.id === selectedId);
+  const sidebarRef = useRef();
+  useClickOutside(sidebarRef, () => {
+    if (isSidebarOpen) {
+      setIsSidebarOpen(false);
+    }
+  });
 
   const handleToggleClick = () => {
     setIsSidebarOpen(!isSidebarOpen); // toggle the state
@@ -83,6 +104,9 @@ export default function MessagePage() {
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
@@ -92,6 +116,7 @@ export default function MessagePage() {
           <div>
             {/* sidebar */}
             <div
+              ref={sidebarRef} 
               className={`${styles.sidebar} ${
                 isSidebarOpen && styles["sidebar-open"]
               }`}
