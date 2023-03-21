@@ -2,22 +2,20 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./ProjectCard.module.css";
 
-export default function ProjectCard({
-  project: {
+export default function ProjectCard({ project, isProject }) {
+  const {
     id,
     title,
     description,
-    field,
     skill,
     dueDate,
     writer,
     profile,
     recruitment,
-  },
-}) {
+  } = project;
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/projects/${id}`);
+    navigate(`/${isProject ? "projects" : "studies"}/${id}`);
   };
 
   return (
@@ -29,10 +27,16 @@ export default function ProjectCard({
       </div>
       <p className={styles.description}>{description}</p>
       <div className={styles.info}>
-        <div className={styles.qualification}>
-          <p>모집분야 : {field}</p>
-          <p>모집기술 : {skill}</p>
-        </div>
+        {isProject ? (
+          <div className={styles.qualification}>
+            <p>모집분야 : {project.field}</p>
+            <p>모집기술 : {skill}</p>
+          </div>
+        ) : (
+          <div className={styles.qualification}>
+            <p>스터디 기술 : {skill}</p>
+          </div>
+        )}
         <div className={styles.profile}>
           {profile ? (
             <img className={styles.image} src={profile} alt={writer} />

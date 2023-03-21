@@ -3,13 +3,15 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 import styles from "./ProjectList.module.css";
 
-export default function ProjectList({ categories, recruitment }) {
+export default function ProjectList({ isProject, categories, recruitment }) {
   const {
     isLoading,
     error,
     data: projects,
   } = useQuery(["projects"], async () =>
-    fetch("/data/projects.json").then((res) => res.json())
+    fetch(`/data/${isProject ? "projects" : "studies"}.json`).then((res) =>
+      res.json()
+    )
   );
 
   return (
@@ -20,7 +22,11 @@ export default function ProjectList({ categories, recruitment }) {
         <ul className={styles.list}>
           {filterProjects(categories, projects.data, recruitment).map(
             (project) => (
-              <ProjectCard key={project.id} project={project} />
+              <ProjectCard
+                key={project.id}
+                isProject={isProject}
+                project={project}
+              />
             )
           )}
         </ul>
