@@ -80,7 +80,7 @@ export default function Study() {
     }
   };
   const handleWriteClick = () => {
-    navigate("/projects/new-project");
+    navigate("/studies/new-study");
   };
   const handleRecruit = () => {
     setRecruit((prev) => !prev);
