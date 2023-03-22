@@ -103,6 +103,7 @@
     margin-top: 0.6rem;
     margin-bottom: 0.2rem;
   }
+
   .qualification {
     flex-direction: column;
     margin: 0.4rem 0;
@@ -128,6 +129,10 @@
 
   .description {
     display: none;
+  }
+
+  .info {
+    padding-top: 0.4rem;
   }
 
   .qualification p {

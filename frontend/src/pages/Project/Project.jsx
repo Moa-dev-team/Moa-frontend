@@ -133,7 +133,11 @@ export default function Project() {
           </aside>
           <ToggleButton recruit={recruit} onClick={handleRecruit} />
         </section>
-        <ProjectList categories={categories} recruitment={recruit} />
+        <ProjectList
+          isProject={true}
+          categories={categories}
+          recruitment={recruit}
+        />
       </div>
     </div>
   );
