@@ -1,0 +1,106 @@
+.box {
+  width: 70%;
+  height: calc(100% + 400px);
+}
+
+.input-title {
+  height: 4rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.myCol-6 {
+  box-sizing: border-box;
+  width: 45%;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem;
+}
+
+.myCol-6-2 {
+  box-sizing: border-box;
+  width: 45%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0.5rem;
+}
+
+.myCol-6-2-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-line {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+  .myCol-6 {
+    width: 90%;
+  }
+  .myCol-6-2 {
+    width: 90%;
+  }
+  .box {
+    width: 100%;
+  }
+  .button-line {
+    display: block;
+  }
+}
+
+.sub-title {
+  text-align: right;
+  margin-right: 1rem;
+  display: inline-block;
+  width: 30%;
+  white-space: nowrap;
+}
+
+.custom-select {
+  width: 70%;
+  display: inline-block;
+}
+
+.sub-input {
+  width: 70%;
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.sub-input:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.more {
+  margin-left: 2rem;
+  font-size: 0.8rem;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calender-box {
+  width: 70%;
+  display: inline-block;
+}
