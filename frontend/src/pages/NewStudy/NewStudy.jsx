@@ -146,14 +146,16 @@ export default function NewProject() {
                   />
                 </div>
               </div>
-              <div className={styles["myCol-6"]}>
-                <div className={styles["sub-title"]}>예상 기간</div>
-                <Select
-                  options={monthCount}
-                  className={`select ${styles["custom-select"]}`}
-                  classNamePrefix="select"
-                  placeholder="예상 기간을 선택하세요."
-                />
+              <div className={styles["myCol-6-2"]}>
+                <div className={styles["myCol-6-2-sub"]}>
+                  <div className={styles["sub-title"]}>예상 기간</div>
+                  <Select
+                    options={monthCount}
+                    className={`select ${styles["custom-select"]}`}
+                    classNamePrefix="select"
+                    placeholder="예상 기간을 선택하세요."
+                  />
+                </div>
               </div>
               <div className={styles["myCol-6-2"]}>
                 <div className={styles["myCol-6-2-sub"]}>
