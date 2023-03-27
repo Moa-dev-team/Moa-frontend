@@ -50,11 +50,6 @@ export default function NewProject() {
     })),
   }));
 
-  const optionsOnlyCategory = categoryData && categoryData.data.map((category) => ({
-    label: category.category,
-    value: category.category,
-  }));
-
   const peopleCount = [
     { value: "1", label: "1명" },
     { value: "2", label: "2명" },
