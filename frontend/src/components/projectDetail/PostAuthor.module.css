@@ -1,0 +1,36 @@
+.box {
+  border: 1px solid #d9d9d9;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.profile {
+  margin-top: 0.5rem;
+  display: inline;
+  text-align: center;
+  width: 20%;
+}
+
+.box30 {
+    width: 40%;
+}
+
+.sub-title {
+    text-align: right;
+    margin-right: 1rem;
+    display: inline-block;
+}
+
+.category-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 0.5px solid #d9d9d9;
+  border-radius: 4px;
+}
