@@ -20,6 +20,7 @@ export default function AutoExpandingTextArea({ className, ...props }) {
   
     if (scrollHeight > editorHeight) {
       editor.root.style.height = Math.min(scrollHeight, 1000) + 10 + "px";
+
     } else if (editorHeight < 160) {
       editor.root.style.height = "150px";
     }
