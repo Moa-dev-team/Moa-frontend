@@ -23,7 +23,12 @@
 }
 
 .buttons {
-    display: flex;
+  display: flex;
+}
+
+.category-box {
+  display: flex;
+  flex-wrap : wrap;
 }
 
 @media (max-width: 768px) {
