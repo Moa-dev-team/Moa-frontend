@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import styles from "./ProjectDetail.module.css";
 import SmallButton from "../../components/buttons/SmallButton";
-import PostAuthor from "../../components/projectDetail/PostAuthor";
+import PostProfile from "../../components/projectDetail/PostProfile";
 import CategoryBox from "../../components/projectDetail/CategoryBox";
+import SendMessageForm from "../../components/messages/SendMessageForm";
 
 export default function ProjectDetail() {
   const { projectId } = useParams();
@@ -43,8 +44,8 @@ export default function ProjectDetail() {
           </div>
         </div>
         <div className="row">
-          <div className={`${styles.title}`}>생성자</div>
-          <PostAuthor />
+          <div className={`${styles.title}`}>작성자</div>
+          <PostProfile userType={2} />
         </div>
         <div className="row">
           <label className={`col-label ${styles.title}`}>스터디 정보</label>
@@ -56,7 +57,6 @@ export default function ProjectDetail() {
                   {project_detail && project_detail.info.peopleCount}명
                 </div>
               </div>
-
               <div className={styles["myCol-6"]}>
                 <div className={styles["sub-title"]}>진행 방식</div>
                 <div className={styles["sub-input"]}>
@@ -66,10 +66,11 @@ export default function ProjectDetail() {
               <div className={styles["myCol-6"]}>
                 <div className={styles["sub-title"]}>모집 기술</div>
                 <div className={styles["sub-input"]}>
-                  <div className={styles['category-box']}>
-                    {project_detail && project_detail.info.skills.map((skill) => {
-                      return <CategoryBox category={skill.skill} />
-                    })}
+                  <div className={styles["category-box"]}>
+                    {project_detail &&
+                      project_detail.info.skills.map((skill) => {
+                        return <CategoryBox category={skill.skill} />;
+                      })}
                   </div>
                 </div>
               </div>
@@ -97,18 +98,25 @@ export default function ProjectDetail() {
           </div>
         </div>
         <div className="row">
-          <label htmlFor="introduce" className={`col-label ${styles.title}`}>
-            스터디 소개
-          </label>
-          <div className="">{project_detail && project_detail.description}</div>
+          <div className={`${styles.title}`}>스터디 소개</div>
+          <div className={styles["border-box"]}>
+            {project_detail && project_detail.description}
+          </div>
         </div>
         <div className="row">
-          <label htmlFor="need" className={`col-label ${styles.title}`}>
-            요구사항
-          </label>
-          {project_detail && project_detail.requirement}
+          <div className={`${styles.title}`}>요구사항</div>
+          <div className={styles["border-box"]}>
+            {project_detail && project_detail.requirement}
+          </div>
         </div>
-        <div className={styles["button-line"]}></div>
+        <div className="row">
+          <div className={`${styles.title}`}>참여자</div>
+          <PostProfile userType={1} />
+        </div>
+        <div className="row">
+          <div className={`${styles.title}`}>신청자</div>
+          <PostProfile userType={0} />
+        </div>
       </div>
     </>
   );
