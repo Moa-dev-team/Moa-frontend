@@ -1,0 +1,157 @@
+.card {
+  position: relative;
+  width: 200px;
+  margin: 0 0.4rem 1rem;
+  padding: 0.8rem 0 1rem;
+  border: 1px solid var(--color-dark-gray);
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card:hover .inner {
+  bottom: 0;
+}
+
+.follow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.followBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  color: var(--color-gray);
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.followBtn:hover {
+  transform: scale(1.1);
+}
+
+.following {
+  color: #f52525;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nameAndField {
+  display: flex;
+}
+
+.nameAndField p {
+  padding: 0.8rem 0.4rem;
+  margin: 0;
+}
+
+.nameAndField p:last-child {
+  color: var(--color-dark-gray);
+}
+
+.profileImage,
+.profileBox {
+  width: 100px;
+  height: 100px;
+  border-radius: 0.5rem;
+}
+
+.profileBox {
+  background-color: var(--color-blue);
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 68.77px;
+  margin: 0.2rem 0;
+  padding: 0 0.4rem;
+  overflow: hidden;
+}
+
+.inner {
+  position: absolute;
+  bottom: -230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 230px;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-dark-gray);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: white;
+  overflow-y: auto;
+  transition: all 0.4s ease;
+}
+
+.inner p {
+  width: 80%;
+  margin-bottom: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-gray);
+  font-weight: bolder;
+  color: var(--color-dark-gray);
+}
+
+.inner ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-top: 0.4rem;
+  padding: 0;
+}
+
+@media screen and (max-width: 425px) {
+  .card {
+    width: 100%;
+    padding: 0.4rem;
+  }
+
+  .info {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 1rem;
+  }
+
+  .nameAndField {
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+
+  .nameAndField p {
+    padding: 0 0.4rem;
+  }
+
+  .nameAndField p:first-child {
+    padding-bottom: 0.4rem;
+  }
+
+  .profileImage,
+  .profileBox {
+    width: 60px;
+    height: 60px;
+  }
+
+  .list {
+    justify-content: flex-start;
+    margin-top: 0.8rem;
+    margin-left: 1rem;
+    padding-left: 0;
+    height: 34.38px;
+  }
+
+  .inner {
+    display: none;
+  }
+}

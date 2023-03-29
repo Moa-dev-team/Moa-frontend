@@ -3,6 +3,8 @@
     {
       "category": "프론트엔드",
       "list": [
+        { "text": "HTML", "color": "#e56026" },
+        { "text": "CSS", "color": "#32a0d4" },
         { "text": "JavaScript", "color": "#ffd699" },
         { "text": "TypeScript", "color": "#99c0ff" },
         { "text": "React", "color": "#99eaff" },

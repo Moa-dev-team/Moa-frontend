@@ -7,6 +7,11 @@
   cursor: pointer;
 }
 
+.list.isSkill {
+  margin-bottom: 0.4rem;
+  padding: 0.2rem 0.8rem;
+}
+
 .text {
   font-size: 0.9rem;
   font-weight: bolder;

@@ -1,0 +1,14 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-grow: 0;
+  margin: 1rem;
+  padding: 0;
+}
+
+@media screen and (max-width: 425px) {
+  .list {
+    margin-top: 0;
+  }
+}

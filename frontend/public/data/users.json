@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "안호성",
+      "profile": false,
+      "field": "프론트엔드",
+      "skills": ["Kotlin", "React", "MongoDB", "JavaScript"],
+      "interest": ["React", "JavaScript"],
+      "following": true
+    },
+    {
+      "id": 2,
+      "name": "윤강",
+      "profile": "https://images.unsplash.com/photo-1678260102701-67dddc6b73d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1442&q=80",
+      "field": "프론트엔드",
+      "skills": ["HTML", "CSS", "JavaScript", "React", "Java", "Python"],
+      "interest": ["React", "JavaScript"],
+      "following": false
+    },
+    {
+      "id": 3,
+      "name": "김태근",
+      "profile": false,
+      "field": "벡엔드",
+      "skills": ["Java", "Spring", "Python"],
+      "interest": ["Java", "MySQL"],
+      "following": true
+    },
+    {
+      "id": 4,
+      "name": "김재강",
+      "profile": false,
+      "field": "벡엔드",
+      "skills": ["Java", "Kotlin", "MongoDB"],
+      "interest": ["Java", "Express"],
+      "following": true
+    },
+    {
+      "id": 5,
+      "name": "안호성",
+      "profile": false,
+      "field": "프론트엔드",
+      "skills": ["HTML", "CSS", "JavaScript", "React"],
+      "interest": ["React", "JavaScript"],
+      "following": true
+    },
+    {
+      "id": 6,
+      "name": "윤강",
+      "profile": "https://images.unsplash.com/photo-1678260102701-67dddc6b73d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1442&q=80",
+      "field": "프론트엔드",
+      "skills": ["HTML", "CSS", "JavaScript", "React"],
+      "interest": ["React", "JavaScript"],
+      "following": false
+    },
+    {
+      "id": 7,
+      "name": "김태근",
+      "profile": false,
+      "field": "벡엔드",
+      "skills": ["Java", "Spring", "Python"],
+      "interest": ["Java", "MySQL"],
+      "following": true
+    },
+    {
+      "id": 8,
+      "name": "김재강",
+      "profile": false,
+      "field": "벡엔드",
+      "skills": ["Java", "Kotlin", "MongoDB"],
+      "interest": ["Java", "Express"],
+      "following": true
+    }
+  ]
+}
