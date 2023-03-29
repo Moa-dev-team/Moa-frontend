@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
@@ -64,18 +64,30 @@ const categoryData = [
 ];
 
 export default function UserCard({ user }) {
+  const followBtn = useRef();
   const navigate = useNavigate();
   const { name, profile, field, skills, interest, following } = user;
+  const [isFollow, setIsFollow] = useState(following);
 
-  const handleClick = () => {
-    navigate(`/users/${user.id}`);
+  const handleClick = (e) => {
+    if (e.currentTarget === followBtn.current) {
+      setIsFollow((prev) => !prev);
+      e.stopPropagation();
+    } else {
+      navigate(`/users/${user.id}`);
+    }
   };
+  // const handleFollow = () => {
+  //   setIsFollow((prev) => !prev);
+  // };
 
   return (
     <li className={styles.card} onClick={handleClick}>
       <div className={styles.follow}>
         <button
-          className={`${styles.followBtn} ${following ? styles.following : ""}`}
+          className={`${styles.followBtn} ${isFollow ? styles.following : ""}`}
+          onClick={handleClick}
+          ref={followBtn}
         >
           <FaHeart />
         </button>
@@ -101,6 +113,30 @@ export default function UserCard({ user }) {
           />
         ))}
       </ul>
+      <section className={styles.inner}>
+        <p>기술 스택</p>
+        <ul>
+          {skills.map((skill) => (
+            <CategoryTag
+              key={uuid()}
+              category={skill}
+              color={getColor(skill)}
+              isSkill={true}
+            />
+          ))}
+        </ul>
+        <p>관심 분야</p>
+        <ul>
+          {interest.map((interest) => (
+            <CategoryTag
+              key={uuid()}
+              category={interest}
+              color={getColor(interest)}
+              isSkill={true}
+            />
+          ))}
+        </ul>
+      </section>
     </li>
   );
 }

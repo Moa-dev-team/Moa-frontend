@@ -1,10 +1,16 @@
 .card {
+  position: relative;
   width: 200px;
   margin: 0 0.4rem 1rem;
-  padding: 0.8rem 0.4rem 1rem;
+  padding: 0.8rem 0 1rem;
   border: 1px solid var(--color-dark-gray);
   border-radius: 1rem;
+  overflow: hidden;
   cursor: pointer;
+}
+
+.card:hover .inner {
+  bottom: 0;
 }
 
 .follow {
@@ -19,6 +25,11 @@
   font-size: 1.4rem;
   color: var(--color-gray);
   background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.followBtn:hover {
+  transform: scale(1.1);
 }
 
 .following {
@@ -62,8 +73,43 @@
   flex-wrap: wrap;
   height: 68.77px;
   margin: 0.2rem 0;
-  padding-left: 0.4rem;
+  padding: 0 0.4rem;
   overflow: hidden;
+}
+
+.inner {
+  position: absolute;
+  bottom: -230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 230px;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-dark-gray);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: white;
+  overflow-y: auto;
+  transition: all 0.4s ease;
+}
+
+.inner p {
+  width: 80%;
+  margin-bottom: 0;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--color-gray);
+  font-weight: bolder;
+  color: var(--color-dark-gray);
+}
+
+.inner ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-top: 0.4rem;
+  padding: 0;
 }
 
 @media screen and (max-width: 425px) {
@@ -103,5 +149,9 @@
     margin-left: 1rem;
     padding-left: 0;
     height: 34.38px;
+  }
+
+  .inner {
+    display: none;
   }
 }
