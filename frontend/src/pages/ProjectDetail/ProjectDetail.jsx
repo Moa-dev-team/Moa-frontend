@@ -5,7 +5,9 @@ import styles from "./ProjectDetail.module.css";
 import SmallButton from "../../components/buttons/SmallButton";
 import PostProfile from "../../components/projectDetail/PostProfile";
 import CategoryBox from "../../components/projectDetail/CategoryBox";
-import SendMessageForm from "../../components/messages/SendMessageForm";
+import PostSendMessageForm from "../../components/projectDetail/PostSendMessageForm";
+import ChatLeft from "../../components/messages/ChatLeft";
+import image from "../../assets/images/profile.png";
 
 export default function ProjectDetail() {
   const { projectId } = useParams();
@@ -17,6 +19,13 @@ export default function ProjectDetail() {
   } = useQuery(["project_detail"], async () =>
     fetch("/data/project_detail.json").then((res) => res.json())
   );
+
+  const chatUser = {
+    text: "안녕하세요",
+    image: image,
+    name: "안호성",
+    date: new Date("2023-01-01"),
+  };
 
   return (
     <>
@@ -116,6 +125,20 @@ export default function ProjectDetail() {
         <div className="row">
           <div className={`${styles.title}`}>신청자</div>
           <PostProfile userType={0} />
+        </div>
+        <div className="row">
+          <div className={`${styles.title}`}>2개의 댓글</div>
+          <div className={`${styles["flex-grow-0"]}`}>
+            <PostSendMessageForm />
+          </div>
+          <div className={styles["chat-box"]}>
+            <ChatLeft
+              text={chatUser.text}
+              image={chatUser.image}
+              name={chatUser.name}
+              date={chatUser.date}
+            />
+          </div>
         </div>
       </div>
     </>

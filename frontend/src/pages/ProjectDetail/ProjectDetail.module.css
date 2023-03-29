@@ -38,6 +38,17 @@
   flex-wrap : wrap;
 }
 
+.flex-grow-0 {
+  flex-grow: 0 ;
+}
+
+.chat-box {
+  margin-top : 1rem;
+  background-color: #F3F5F7;
+  min-height: 200px;
+  padding-top: 1rem;
+}
+
 @media (max-width: 768px) {
     .title-row {
         display: inline-block;
