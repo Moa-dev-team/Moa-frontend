@@ -28,8 +28,8 @@ export default function PostAuthor({ userId, userType }) {
           <div>
             <div className={styles["category-box"]}>
               {post_author &&
-                post_author.interest.map((skill) => {
-                  return <CategoryBox category={skill} />;
+                post_author.interest.map((skill, index) => {
+                  return <CategoryBox key={index} category={skill} />;
                 })}
             </div>
           </div>
@@ -39,8 +39,8 @@ export default function PostAuthor({ userId, userType }) {
           <div>
             <div className={styles["category-box"]}>
               {post_author &&
-                post_author.skills.map((skill) => {
-                  return <CategoryBox category={skill} />;
+                post_author.skills.map((skill, index) => {
+                  return <CategoryBox key={index} category={skill} />;
                 })}
             </div>
           </div>

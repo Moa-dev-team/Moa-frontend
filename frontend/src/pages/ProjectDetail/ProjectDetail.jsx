@@ -31,14 +31,10 @@ export default function ProjectDetail() {
     <>
       <div className={`container ${styles.box}`}>
         <div className="row">
-          <div className={styles.title}>
-            {project_detail && project_detail.title}
-          </div>
+          <div className={styles.title}>{project_detail.title}</div>
         </div>
         <div className={`${styles["title-row"]}`}>
-          <div className={styles.date}>
-            {project_detail && project_detail.createdAt}
-          </div>
+          <div className={styles.date}>{project_detail.createdAt}</div>
           <div className={styles["buttons"]}>
             <div className="m-2">
               <SmallButton
@@ -63,43 +59,42 @@ export default function ProjectDetail() {
               <div className={styles["myCol-6"]}>
                 <div className={styles["sub-title"]}>모집 인원</div>
                 <div className={styles["sub-input"]}>
-                  {project_detail && project_detail.info.peopleCount}명
+                  {project_detail.Participants.length}명 / {project_detail.info.peopleCount}명
                 </div>
               </div>
               <div className={styles["myCol-6"]}>
                 <div className={styles["sub-title"]}>진행 방식</div>
                 <div className={styles["sub-input"]}>
-                  {project_detail && project_detail.info.contactMethod}
+                  {project_detail.info.contactMethod}
                 </div>
               </div>
               <div className={styles["myCol-6"]}>
                 <div className={styles["sub-title"]}>모집 기술</div>
                 <div className={styles["sub-input"]}>
                   <div className={styles["category-box"]}>
-                    {project_detail &&
-                      project_detail.info.skills.map((skill) => {
-                        return <CategoryBox category={skill.skill} />;
-                      })}
+                    {project_detail.info.skills.map((skill, index) => {
+                      return <CategoryBox key={index} category={skill.skill} />;
+                    })}
                   </div>
                 </div>
               </div>
               <div className={styles["myCol-6"]}>
                 <div className={styles["sub-title"]}>모집 분야</div>
                 <div className={styles["sub-input"]}>
-                  {project_detail && project_detail.info.field}
+                  {project_detail.info.field}
                 </div>
               </div>
               <div className={styles["myCol-6"]}>
                 <div className={styles["sub-title"]}>시작 예정일</div>
                 <div className={styles["sub-input"]}>
-                  {project_detail && project_detail.info.startDate}
+                  {project_detail.info.startDate}
                 </div>
               </div>
               <div className={styles["myCol-6-2"]}>
                 <div className={styles["myCol-6-2-sub"]}>
                   <div className={styles["sub-title"]}>예상 기간</div>
                   <div className={styles["sub-input"]}>
-                    {project_detail && project_detail.info.duration}
+                    {project_detail.info.duration}
                   </div>
                 </div>
               </div>
@@ -109,13 +104,13 @@ export default function ProjectDetail() {
         <div className="row">
           <div className={`${styles.title}`}>스터디 소개</div>
           <div className={styles["border-box"]}>
-            {project_detail && project_detail.description}
+            {project_detail.description}
           </div>
         </div>
         <div className="row">
           <div className={`${styles.title}`}>요구사항</div>
           <div className={styles["border-box"]}>
-            {project_detail && project_detail.requirement}
+            {project_detail.requirement}
           </div>
         </div>
         <div className="row">
