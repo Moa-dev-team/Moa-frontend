@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import UserCard from "./UserCard";
+import styles from "./UserList.module.css";
 
 export default function UserList({ categories }) {
   const {
@@ -16,7 +17,7 @@ export default function UserList({ categories }) {
       {isLoading && <p>isLoading...</p>}
       {error && <p>something is wrong!</p>}
       {users && (
-        <ul>
+        <ul className={styles.list}>
           {filterUsers(categories, users.data).map((user) => (
             <UserCard key={user.id} user={user} />
           ))}

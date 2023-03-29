@@ -39,7 +39,7 @@
     top: 1rem;
   }
 
-  .header__upper {
+  .list {
     margin-left: 4rem;
     margin-top: 1rem;
   }
@@ -50,17 +50,9 @@
     top: 0.6rem;
   }
 
-  .header__upper {
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: 0.8rem;
-    margin-left: 1rem;
-    border: none;
-  }
-
   .list {
-    width: 80%;
-    height: 2rem;
-    margin-bottom: 0.6rem;
+    margin-top: 0.8rem;
+    margin-right: 1.4rem;
+    border: none;
   }
 }
