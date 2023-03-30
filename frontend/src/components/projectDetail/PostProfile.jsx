@@ -45,14 +45,16 @@ export default function PostAuthor({ userId, userType }) {
             </div>
           </div>
         </div>
-        <div>
+        <div className={styles["button-box"]}>
           {userType === 0 ? (
             <>
               <PostSmallButton text={"함께하기"} />
               <PostSmallButton text={"삭제하기"} backgroundColor={"#9DA194"} />
             </>
           ) : userType === 1 ? (
+            <>
             <PostSmallButton text={"내보내기"} backgroundColor={"red"} />
+            </>
           ) : null}
         </div>
       </div>
