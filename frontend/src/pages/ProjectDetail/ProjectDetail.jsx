@@ -27,6 +27,8 @@ export default function ProjectDetail() {
     date: new Date("2023-01-01"),
   };
 
+  if (isLoading) return "Loading...";
+  if (error) return "An error has occurred: " + error.message;
   return (
     <>
       <div className={`container ${styles.box}`}>

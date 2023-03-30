@@ -2,18 +2,23 @@
   border: 1px solid #d9d9d9;
   border-radius: 0.5rem;
   display: flex;
+  justify-content: center;
   align-items: center;
+  white-space: nowrap;
 }
 
-.profile {
+.profile-box {
   margin-top: 0.5rem;
   display: inline;
   text-align: center;
-  width: 20%;
+  width: 10%;
 }
 
-.box30 {
-    width: 40%;
+.tech-box {
+  display: flex;
+  width: 35%;
+  flex-grow: 1;
+  align-items:baseline;
 }
 
 .sub-title {
@@ -25,6 +30,8 @@
 .category-box {
     display: flex;
     flex-wrap: wrap;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .image {

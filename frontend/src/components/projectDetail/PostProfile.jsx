@@ -17,14 +17,14 @@ export default function PostAuthor({ userId, userType }) {
   return (
     <React.Fragment>
       <div className={`${styles.box}`}>
-        <div className={styles.profile}>
+        <div className={styles["profile-box"]}>
           <div>
             <img className={styles.image} src={image} alt="profile" />
           </div>
           <div>{post_author && post_author.username}</div>
         </div>
-        <div className="d-flex">
-          <div className={styles["sub-title"]}>관심 분야</div>
+        <div className={styles["tech-box"]}>
+          <div className={styles["sub-title"]}>관심 분야 : </div>
           <div>
             <div className={styles["category-box"]}>
               {post_author &&
@@ -34,7 +34,7 @@ export default function PostAuthor({ userId, userType }) {
             </div>
           </div>
         </div>
-        <div className="d-flex">
+        <div className={styles["tech-box"]}>
           <div className={styles["sub-title"]}>기술 스텍</div>
           <div>
             <div className={styles["category-box"]}>
