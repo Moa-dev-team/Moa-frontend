@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./LoginButton.module.css";
 
-export default function LoginButton({ sns: { logo, text } }) {
+export default function LoginButton({ sns }) {
   return (
     <li>
       <button className={styles.button}>
-        {logo}
-        <span>{text}로 로그인</span>
+        {sns.logo}
+        <span className={styles.text}>{sns.text}</span>
       </button>
     </li>
   );
