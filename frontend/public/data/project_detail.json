@@ -1,0 +1,23 @@
+{
+  "title": "같이 성장하실 프론트엔드 개발자분 구합니다.",
+  "info": {
+    "peopleCount": "3",
+    "contactMethod": "대면",
+    "skills": [
+      { "skill": "JavaScript", "color": "#ffd699" },
+      { "skill": "TypeScript", "color": "#99c0ff" },
+      { "skill": "React", "color": "#99eaff" },
+      { "skill": "Vue", "color": "#c3edab" }
+    ],
+    "field": ["프론트엔드", "백엔드"],
+    "startDate": "2023-03-26",
+    "duration": "2달"
+  },
+  "description": "프로젝트 소개글 예시입니다. 이미지 파일은 생략되었습니다.",
+  "requirement": "요구사항 글입니다.",
+  "createdAt": "2021-03-26",
+  "author_id": 3,
+  "Participants" : [2, 3], 
+  "Application" : [4, 5],
+  "chats" : []
+}

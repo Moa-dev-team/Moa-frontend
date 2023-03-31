@@ -1,0 +1,23 @@
+.list {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.4rem;
+  }
+  
+  .text {
+    font-size: 0.9rem;
+    font-weight: bolder;
+  }
+  
+  @media screen and (max-width: 425px) {
+    .list {
+      height: 1.8rem;
+    }
+  
+    .text {
+      font-size: 0.8rem;
+    }
+  }
+  
