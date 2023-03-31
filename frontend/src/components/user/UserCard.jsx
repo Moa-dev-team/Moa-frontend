@@ -77,9 +77,6 @@ export default function UserCard({ user }) {
       navigate(`/users/${user.id}`);
     }
   };
-  // const handleFollow = () => {
-  //   setIsFollow((prev) => !prev);
-  // };
 
   return (
     <li className={styles.card} onClick={handleClick}>

@@ -34,6 +34,10 @@ export default function NavBar() {
     return () => mql.removeEventListener("change", screenChange);
   }, []);
 
+  if (pathname === "/login") {
+    return <></>;
+  }
+
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.logo}>
