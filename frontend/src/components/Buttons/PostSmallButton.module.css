@@ -15,9 +15,9 @@
   filter: brightness(0.8);
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 756px) {
   .button {
-    width: 100%;
+    width: 90%;
     font-size: 1rem;
   }
 }

@@ -21,7 +21,7 @@ export default function PostAuthor({ userId, userType }) {
           <div>
             <img className={styles.image} src={image} alt="profile" />
           </div>
-          <div>{post_author && post_author.username}</div>
+          <div className={styles["user-name"]}>{post_author && post_author.username}</div>
         </div>
         <div className={styles["tech-box"]}>
           <div className={styles["sub-title"]}>관심 분야 : </div>
