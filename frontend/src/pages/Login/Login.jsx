@@ -15,7 +15,12 @@ const loginSNS = [
   {
     id: 2,
     text: "네이버",
-    logo: <SiNaver style={{ color: "#03c75b" }} className={styles.naver} />,
+    logo: (
+      <SiNaver
+        style={{ color: "#03c75b", borderRadius: "50%" }}
+        className={styles.naver}
+      />
+    ),
   },
   {
     id: 3,

@@ -1,13 +1,14 @@
-.button {
+.list {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 0 0.4rem;
-  padding: 0.2rem 0.6rem;
-  font-size: 2.4rem;
-  background-color: transparent;
 }
 
-.text {
-  margin-left: 0.4rem;
-  font-size: 1rem;
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.8rem;
+  font-size: 2.8rem;
+  background-color: transparent;
 }
