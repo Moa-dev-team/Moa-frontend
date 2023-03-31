@@ -8,9 +8,23 @@ import CategoryBox from "../../components/projectDetail/CategoryBox";
 import PostSendMessageForm from "../../components/projectDetail/PostSendMessageForm";
 import ChatLeft from "../../components/messages/ChatLeft";
 import image from "../../assets/images/profile.png";
+const comments = [
+  { id: 0, name : "안호성", text: "안녕하세요", profile: image, date: new Date("2020-01-01") },
+  {
+    id: 2,
+    name : "윤강", text: "안녕못한데?",
+    profile: image,
+    date: new Date("2020-01-02"),
+  }
+];
 
 export default function ProjectDetail() {
   const { projectId } = useParams();
+  const [PostComment, setPostComment] = useState(comments);
+
+  const handleSendMessage = (comment) => {
+    setPostComment([...PostComment, comment]);
+  };
 
   const {
     isLoading,
@@ -20,12 +34,6 @@ export default function ProjectDetail() {
     fetch("/data/project_detail.json").then((res) => res.json())
   );
 
-  const chatUser = {
-    text: "안녕하세요",
-    image: image,
-    name: "안호성",
-    date: new Date("2023-01-01"),
-  };
 
   if (isLoading) return "Loading...";
   if (error) return "An error has occurred: " + error.message;
@@ -61,7 +69,8 @@ export default function ProjectDetail() {
               <div className={styles["myCol-6"]}>
                 <div className={styles["sub-title"]}>모집 인원</div>
                 <div className={styles["sub-input"]}>
-                  {project_detail.Participants.length}명 / {project_detail.info.peopleCount}명
+                  {project_detail.Participants.length}명 /{" "}
+                  {project_detail.info.peopleCount}명
                 </div>
               </div>
               <div className={styles["myCol-6"]}>
@@ -85,7 +94,8 @@ export default function ProjectDetail() {
                 <div className={styles["sub-input"]}>
                   <div className={styles["field-box"]}>
                     {project_detail.info.field.map((field, index) => {
-                      return <CategoryBox key={index} category={field} />; } )}
+                      return <CategoryBox key={index} category={field} />;
+                    })}
                   </div>
                 </div>
               </div>
@@ -127,17 +137,24 @@ export default function ProjectDetail() {
           <PostProfile userType={0} />
         </div>
         <div className="row">
-          <div className={`${styles.title}`}>2개의 댓글</div>
-          <div className={styles["chat-box"]}>
-            <ChatLeft
-              text={chatUser.text}
-              image={chatUser.image}
-              name={chatUser.name}
-              date={chatUser.date}
-            />
+          <div className={`${styles.title}`}>{PostComment.length}개의 댓글</div>
+          <div className={`p-0 ${styles["flex-grow-0"]} mt-3`}>
+            <PostSendMessageForm onSendMessage={handleSendMessage}/>
           </div>
-          <div className={`p-0 ${styles["flex-grow-0"]}`}>
-            <PostSendMessageForm/>
+          <div className={styles["chat-box"]}>
+            {PostComment.map((comment, index) => {
+              return (
+                <ChatLeft
+                  key={index}
+                  text={comment.text}
+                  image={comment.profile}
+                  name={comment.name}
+                  date={comment.date}
+                  isPost={true}
+                />
+              );
+            })}
+           
           </div>
         </div>
       </div>

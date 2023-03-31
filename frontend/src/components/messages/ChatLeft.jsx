@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ChatLeft.module.css";
 import NewLineText from "./NewLineText";
 
-export default function ChatLeft({text, image, name, date}) {
+export default function ChatLeft({text, image, name, date, isPost}) {
   return (
     <React.Fragment>
       <div className={`${styles["date-left"]} text-muted small`}>
@@ -13,13 +13,13 @@ export default function ChatLeft({text, image, name, date}) {
           <img
             src={image}
             className={styles["chat-image"]}
-            alt="username"
+            alt="profile"
             width="40"
             height="40"
           />
           <div className={styles.name}>{name}</div>
         </div>
-        <div className="">
+        <div className={isPost && styles.text}>
           <NewLineText text={text}/>
         </div>
       </div>

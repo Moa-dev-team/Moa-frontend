@@ -25,6 +25,10 @@
     font-size: 0.9rem;
 }
 
+.text {
+  width: 100%;
+}
+
 @media (max-width: 425px) {
   .chat-image {
     width: 32px;

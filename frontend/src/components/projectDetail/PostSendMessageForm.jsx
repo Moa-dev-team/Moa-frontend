@@ -1,8 +1,11 @@
 import React, { useState, useRef } from "react";
 import styles from "./PostSendMessageForm.module.css";
 import { AiOutlineSend } from "react-icons/ai";
+import image from "../../assets/images/profile.png"
 
 const myId = 0;
+const MyName = "개발자";
+const MyImage = image
 
 export default function PostSendMessageForm({ onSendMessage }) {
   const [message, setMessage] = useState("");
@@ -11,7 +14,7 @@ export default function PostSendMessageForm({ onSendMessage }) {
   const handleSubmit = (event) => {
     if (message.length === 0) return;
     event.preventDefault();
-    onSendMessage({ id: myId, text: message, date: new Date() });
+    onSendMessage({ id: myId, name : MyName, profile : MyImage, text: message, date: new Date() });
     setMessage("");
     textareaRef.current.focus();
   };
@@ -25,7 +28,7 @@ export default function PostSendMessageForm({ onSendMessage }) {
           <textarea
             ref={textareaRef}
             type="text"
-            placeholder="메세지를 입력해주세요"
+            placeholder="댓글을 작성해주세요."
             aria-describedby="button-addon2"
             className={`form-control ${styles["text-area"]}`}
             value={message}
