@@ -21,7 +21,6 @@
   flex-direction: column;
   width: 35%;
   align-items: flex-start; 
-  padding-left: 1rem; 
 }
 
 .sub-title {
@@ -31,8 +30,8 @@
 
 .category-box {
   display: flex;
+  gap: 0.3rem;
   flex-wrap: wrap;
-  
 }
 
 .button-box {
@@ -40,6 +39,7 @@
   flex-direction: column;
   align-items: center;
   width: 20%; 
+  gap: 0.5rem;
 }
 
 .image {

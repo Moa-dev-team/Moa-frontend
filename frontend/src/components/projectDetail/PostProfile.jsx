@@ -35,7 +35,7 @@ export default function PostAuthor({ userId, userType }) {
           </div>
         </div>
         <div className={styles["tech-box"]}>
-          <div className={styles["sub-title"]}>기술 스텍</div>
+          <div className={styles["sub-title"]}>기술 스텍 : </div>
           <div>
             <div className={styles["category-box"]}>
               {post_author &&

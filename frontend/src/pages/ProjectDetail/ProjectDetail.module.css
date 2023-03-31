@@ -35,6 +35,14 @@
 
 .category-box {
   display: flex;
+  gap : 0.3rem;
+  flex-wrap : wrap;
+}
+
+.field-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap : wrap;
 }
 

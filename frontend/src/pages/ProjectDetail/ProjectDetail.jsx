@@ -83,7 +83,10 @@ export default function ProjectDetail() {
               <div className={styles["myCol-6"]}>
                 <div className={styles["sub-title"]}>모집 분야</div>
                 <div className={styles["sub-input"]}>
-                  {project_detail.info.field}
+                  <div className={styles["field-box"]}>
+                    {project_detail.info.field.map((field, index) => {
+                      return <CategoryBox key={index} category={field} />; } )}
+                  </div>
                 </div>
               </div>
               <div className={styles["myCol-6"]}>
@@ -125,9 +128,6 @@ export default function ProjectDetail() {
         </div>
         <div className="row">
           <div className={`${styles.title}`}>2개의 댓글</div>
-          <div className={`${styles["flex-grow-0"]}`}>
-            <PostSendMessageForm />
-          </div>
           <div className={styles["chat-box"]}>
             <ChatLeft
               text={chatUser.text}
@@ -135,6 +135,9 @@ export default function ProjectDetail() {
               name={chatUser.name}
               date={chatUser.date}
             />
+          </div>
+          <div className={`p-0 ${styles["flex-grow-0"]}`}>
+            <PostSendMessageForm/>
           </div>
         </div>
       </div>
