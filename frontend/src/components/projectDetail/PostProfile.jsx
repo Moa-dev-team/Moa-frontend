@@ -5,7 +5,7 @@ import image from "../../assets/images/profile.png";
 import CategoryBox from "./CategoryBox";
 import PostSmallButton from "../buttons/PostSmallButton";
 
-export default function PostAuthor({ userId, userType }) {
+export default function PostAuthor({ userId, userType, joinById, outById, deleteById}) {
   const {
     isLoading,
     error,
@@ -48,12 +48,12 @@ export default function PostAuthor({ userId, userType }) {
         <div className={styles["button-box"]}>
           {userType === 0 ? (
             <>
-              <PostSmallButton text={"함께하기"} />
-              <PostSmallButton text={"삭제하기"} backgroundColor={"#9DA194"} />
+              <PostSmallButton text={"함께하기"} onClick={() => joinById(userId)}/>
+              <PostSmallButton text={"삭제하기"} backgroundColor={"#9DA194"} onClick={() => deleteById(userId)}/>
             </>
           ) : userType === 1 ? (
             <>
-            <PostSmallButton text={"내보내기"} backgroundColor={"red"} />
+            <PostSmallButton text={"내보내기"} backgroundColor={"red"} onClick={() => outById(userId)} />
             </>
           ) : null}
         </div>
