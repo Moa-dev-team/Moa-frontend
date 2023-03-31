@@ -105,7 +105,7 @@ export default function ProjectDetail() {
               <div className={styles["myCol-6"]}>
                 <div className={styles["sub-title"]}>모집 인원</div>
                 <div className={styles["sub-input"]}>
-                  {data.participants.length}명 / {data.info.peopleCount}명
+                  {participants.length}명 / {data.info.peopleCount}명
                 </div>
               </div>
               <div className={styles["myCol-6"]}>
