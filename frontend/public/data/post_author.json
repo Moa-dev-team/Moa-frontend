@@ -1,6 +1,6 @@
 {
     "username" : "안호성",
     "profileImage" : "이미지파일",
-    "interest" : ["JavaScript", "Java", "Python", "React", "Node.js", "Spring"],
+    "interest" : ["JavaScript", "Java", "Python", "React", "Nodejs", "Spring"],
     "skills" : ["Java", "Python", "React"]
 }
