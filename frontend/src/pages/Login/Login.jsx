@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
 import { FcGoogle } from "react-icons/fc";
@@ -30,6 +30,16 @@ const loginSNS = [
 ];
 
 export default function Login() {
+  const [form, setForm] = useState({ email: "", password: "" });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((form) => ({ ...form, [name]: value }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className={styles.page}>
       <Link to="/" className={styles.header}>
@@ -41,9 +51,23 @@ export default function Login() {
         <pre className={styles.description}>
           로그인 후 다양한 기능을 체험해보세요.
         </pre>
-        <form className={styles.form}>
-          <input type="email" placeholder="이메일" />
-          <input type="password" placeholder="비밀번호" />
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <input
+            onChange={handleChange}
+            type="email"
+            name="email"
+            placeholder="이메일"
+            value={form.email}
+            required
+          />
+          <input
+            onChange={handleChange}
+            type="password"
+            name="password"
+            placeholder="비밀번호"
+            value={form.password}
+            required
+          />
           <button className={styles.loginBtn}>로그인</button>
         </form>
         <button className={styles.signUpBtn}>회원가입</button>
