@@ -19,5 +19,6 @@
   .button {
     width: 90%;
     font-size: 1rem;
+    padding: 0.3rem 0.5rem;
   }
 }
