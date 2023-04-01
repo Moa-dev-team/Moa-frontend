@@ -70,7 +70,9 @@ export default function Login() {
           />
           <button className={styles.loginBtn}>로그인</button>
         </form>
-        <button className={styles.signUpBtn}>회원가입</button>
+        <Link className={styles.signUpBtn} to="/sign-up">
+          회원가입
+        </Link>
         <aside className={styles.snsLogin}>
           <div>sns로 로그인하기</div>
           <ul className={styles.snsLoginBtns}>
