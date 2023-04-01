@@ -1,0 +1,88 @@
+.page {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: auto 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  color: black;
+  text-decoration: none;
+}
+
+.header:hover {
+  color: black;
+}
+
+.header h1 {
+  margin-bottom: 0;
+  margin-left: 1rem;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.logoImage {
+  width: 3rem;
+  height: 3rem;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+  padding: 2rem 6rem;
+  border: 1px solid var(--color-dark-gray);
+  border-radius: 1rem;
+}
+
+.modal h2 {
+  font-weight: bold;
+  margin-bottom: 1.4rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.form label {
+  margin-bottom: 0.2rem;
+}
+
+.form input {
+  margin-bottom: 0.4rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--color-dark-gray);
+  border-radius: 0.4rem;
+}
+
+.form input::placeholder {
+  color: var(--color-gray);
+}
+
+.pwError {
+  font-size: 0.8rem;
+  color: red;
+}
+
+.signUpBtn {
+  margin: 1rem 0;
+  padding: 0.4rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 0.4rem;
+  color: white;
+  background-color: var(--color-blue);
+}
