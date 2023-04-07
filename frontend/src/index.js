@@ -17,6 +17,7 @@ import NewProject from "./pages/NewProject/NewProject";
 import StudyDetail from "./pages/StudyDetail/StudyDetail";
 import NewStudy from "./pages/NewStudy/NewStudy";
 import UserDetail from "./pages/UserDetail/UserDetail";
+import SignUp from "./pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,7 @@ const router = createBrowserRouter([
       { path: "/users", element: <User /> },
       { path: "/users/:userId", element: <UserDetail /> },
       { path: "/login", element: <Login /> },
+      { path: "/sign-up", element: <SignUp /> },
       { path: "/message", element: <Message /> },
       { path: "/my-page", element: <MyPage /> },
     ],

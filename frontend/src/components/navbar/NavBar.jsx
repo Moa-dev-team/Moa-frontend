@@ -34,7 +34,7 @@ export default function NavBar() {
     return () => mql.removeEventListener("change", screenChange);
   }, []);
 
-  if (pathname === "/login") {
+  if (pathname === "/login" || pathname === "/sign-up") {
     return <></>;
   }
 
