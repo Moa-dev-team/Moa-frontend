@@ -5,6 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { SiNaver, SiGithub } from "react-icons/si";
 import styles from "./Login.module.css";
 import LoginButton from "../../components/buttons/LoginButton";
+import axios from "axios";
 
 const loginSNS = [
   {
@@ -36,8 +37,23 @@ export default function Login() {
     const { name, value } = e.target;
     setForm((form) => ({ ...form, [name]: value }));
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/auth/login",
+        form,
+        {
+          withCredentials: true,
+        }
+      );
+      console.log(response);
+      // Redirect to another page or show a success message
+    } catch (error) {
+      console.error(error);
+      // Show an error message or handle the error
+    }
   };
 
   return (
