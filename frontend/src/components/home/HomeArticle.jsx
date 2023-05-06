@@ -2,7 +2,6 @@ import React from "react";
 import LargeButton from "../buttons/LargeButton";
 import styles from "./HomeArticle.module.css";
 import { useNavigate } from "react-router-dom";
-import Fade from "react-reveal/Fade";
 
 export default function HomeArticle({
   article: { title, text, path, position, image },
@@ -14,12 +13,10 @@ export default function HomeArticle({
 
   return (
     <article className={styles.article}>
-      <Fade>
-        <div
-          className={styles.background}
-          style={{ backgroundImage: `url(${image})` }}
-        ></div>
-      </Fade>
+      <div
+        className={styles.background}
+        style={{ backgroundImage: `url(${image})` }}
+      ></div>
       <div className={position === "left" ? styles.box : styles.box__right}>
         <div className={position === "left" ? styles.info : styles.info__right}>
           <h1 className={styles.title}>{title}</h1>
