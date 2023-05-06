@@ -53,6 +53,10 @@
   align-items: center;
 }
 
+.menus__myPageBtn {
+  background-color: transparent;
+}
+
 .icon {
   margin-right: 2rem;
   color: black;

@@ -30,6 +30,9 @@ export default function NavBar() {
     handleIsUser();
     navigate("/");
   };
+  const handleMyPageClick = () => {
+    isUser ? navigate("/my-page") : navigate("/login");
+  };
   const screenChange = (event) => {
     const matches = event.matches;
     setMQuery(matches);
@@ -68,14 +71,14 @@ export default function NavBar() {
             }
           />
         </Link>
-        <Link to="/my-page">
+        <button className={styles.menus__myPageBtn} onClick={handleMyPageClick}>
           <CgProfile
             className={styles.icon}
             style={
               pathname === "/my-page" ? { color: "var(--color-blue)" } : {}
             }
           />
-        </Link>
+        </button>
         {mQuery ? (
           isUser ? (
             <MobileLoginButton onClick={logoutClick} />
