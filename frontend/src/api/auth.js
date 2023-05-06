@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getCookie, removeCookie, setCookie } from "../util/cookie";
 
 export async function signUp(formData) {
   try {
@@ -20,7 +21,7 @@ export async function login(formData) {
     const response = await axios.post("/auth/login", formData);
     const { accessToken } = response.data;
 
-    axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    setCookie("accessToken", accessToken);
     return response;
   } catch (error) {
     const errorCode = error.code;
@@ -31,8 +32,12 @@ export async function login(formData) {
 
 export async function logout() {
   try {
-    const response = await axios.get("/auth/logout");
-    axios.defaults.headers.common["Authorization"] = null;
+    const response = await axios.get("/auth/logout", {
+      headers: {
+        Authorization: `Bearer ${getCookie("accessToken")}`,
+      },
+    });
+    removeCookie("accessToken");
     return response;
   } catch (error) {
     const errorCode = error.code;

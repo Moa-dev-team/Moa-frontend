@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { getCookie } from "../util/cookie";
 
 const AuthContext = createContext();
 
@@ -10,8 +11,8 @@ export function AuthContextProvider({ children }) {
   };
 
   useEffect(() => {
-    const accessToken = axios.defaults.headers.common["Authorization"];
-    setIsUser(accessToken ? accessToken.split(" ")[1] : "");
+    const accessToken = getCookie("accessToken");
+    setIsUser(accessToken || "");
   }, [isUser]);
 
   return (

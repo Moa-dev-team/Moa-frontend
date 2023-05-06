@@ -28,6 +28,7 @@ export default function NavBar() {
   const logoutClick = async () => {
     await logout();
     handleIsUser();
+    navigate("/");
   };
   const screenChange = (event) => {
     const matches = event.matches;
