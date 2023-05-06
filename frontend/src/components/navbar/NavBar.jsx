@@ -7,6 +7,7 @@ import { FiMail } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import NavBarMenu from "./NavBarMenu";
 import MobileLoginButton from "./MobileLoginButton";
+import { useAuth } from "../../contexts/AuthContext";
 
 const navMenus = [
   { text: "프로젝트", path: "/projects", id: 1 },
@@ -15,11 +16,14 @@ const navMenus = [
 ];
 
 export default function NavBar() {
+  const { isUser } = useAuth();
+  console.log(isUser);
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const loginClick = () => {
     navigate("/login");
   };
+  const logoutClick = () => {};
   const [mQuery, setMQuery] = useState(window.innerWidth < 768 ? true : false);
 
   const screenChange = (event) => {
@@ -69,7 +73,13 @@ export default function NavBar() {
           />
         </Link>
         {mQuery ? (
-          <MobileLoginButton type="login" onClick={loginClick} />
+          isUser ? (
+            <MobileLoginButton onClick={loginClick} />
+          ) : (
+            <MobileLoginButton type="login" onClick={loginClick} />
+          )
+        ) : isUser ? (
+          <SmallButton text="로그아웃" onClick={logoutClick} />
         ) : (
           <SmallButton text="로그인" onClick={loginClick} />
         )}

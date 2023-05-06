@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
 import { FcGoogle } from "react-icons/fc";
 import { SiNaver, SiGithub } from "react-icons/si";
 import styles from "./Login.module.css";
 import LoginButton from "../../components/buttons/LoginButton";
 import axios from "axios";
+import { login } from "../../api/auth";
+import { useAuth } from "../../contexts/AuthContext";
 
 const loginSNS = [
   {
@@ -31,6 +33,8 @@ const loginSNS = [
 ];
 
 export default function Login() {
+  const { handleIsUser } = useAuth();
+  const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
@@ -40,20 +44,14 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.post(
-        "http://localhost:8080/api/auth/login",
-        form,
-        {
-          withCredentials: true,
-        }
-      );
-      console.log(response);
-      // Redirect to another page or show a success message
-    } catch (error) {
-      console.error(error);
-      // Show an error message or handle the error
+    const response = await login(form);
+    const responseStatus = response.status;
+
+    if (responseStatus === 201) {
+      navigate("/");
+      handleIsUser();
     }
+    console.log(response);
   };
 
   return (
