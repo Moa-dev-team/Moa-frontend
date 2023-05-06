@@ -8,6 +8,7 @@ import { CgProfile } from "react-icons/cg";
 import NavBarMenu from "./NavBarMenu";
 import MobileLoginButton from "./MobileLoginButton";
 import { useAuth } from "../../contexts/AuthContext";
+import { logout } from "../../api/auth";
 
 const navMenus = [
   { text: "프로젝트", path: "/projects", id: 1 },
@@ -16,16 +17,18 @@ const navMenus = [
 ];
 
 export default function NavBar() {
-  const { isUser } = useAuth();
-  console.log(isUser);
+  const { isUser, handleIsUser } = useAuth();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [mQuery, setMQuery] = useState(window.innerWidth < 768 ? true : false);
+
   const loginClick = () => {
     navigate("/login");
   };
-  const logoutClick = () => {};
-  const [mQuery, setMQuery] = useState(window.innerWidth < 768 ? true : false);
-
+  const logoutClick = async () => {
+    await logout();
+    handleIsUser();
+  };
   const screenChange = (event) => {
     const matches = event.matches;
     setMQuery(matches);
@@ -74,7 +77,7 @@ export default function NavBar() {
         </Link>
         {mQuery ? (
           isUser ? (
-            <MobileLoginButton onClick={loginClick} />
+            <MobileLoginButton onClick={logoutClick} />
           ) : (
             <MobileLoginButton type="login" onClick={loginClick} />
           )

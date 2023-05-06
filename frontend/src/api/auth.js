@@ -28,3 +28,15 @@ export async function login(formData) {
     console.log(errorCode, errorMessage);
   }
 }
+
+export async function logout() {
+  try {
+    const response = await axios.get("/auth/logout");
+    axios.defaults.headers.common["Authorization"] = null;
+    return response;
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+  }
+}
