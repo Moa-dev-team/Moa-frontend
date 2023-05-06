@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import logo from "../../assets/images/Logo.png";
 import styles from "./SignUp.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signUp } from "../../api/auth";
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const [pwError, setPwError] = useState(false);
   const [form, setForm] = useState({
     nickname: "",
@@ -20,11 +21,9 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (form.password === form.confirm_password) {
-      const response = await signUp(form);
-      console.log(response);
-    } else {
-      setPwError(true);
+    if (!pwError) {
+      signUp(form);
+      navigate("/login");
     }
   };
   const checkPassword = (pw1, pw2) => {
