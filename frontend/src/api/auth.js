@@ -45,3 +45,21 @@ export async function logout() {
     console.log(errorCode, errorMessage);
   }
 }
+
+export async function tokenRefresh() {
+  try {
+    const response = await axios.get("/auth/refresh", {
+      headers: {
+        Authorization: `Bearer ${getCookie("accessToken")}`,
+      },
+    });
+    const { accessToken } = response.data;
+
+    setCookie("accessToken", accessToken);
+    return response;
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+  }
+}
