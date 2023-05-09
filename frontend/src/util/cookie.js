@@ -20,7 +20,7 @@ export function decodeToken(token) {
     const decodedToken = jwtDecode(token);
     return decodedToken;
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return null;
   }
 }

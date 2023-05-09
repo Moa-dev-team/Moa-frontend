@@ -19,9 +19,11 @@ export async function signUp(formData) {
 export async function login(formData) {
   try {
     const response = await axios.post("/auth/login", formData);
-    const { accessToken } = response.data;
-
-    setCookie("accessToken", accessToken);
+    const { accessToken, refreshTokenExpirationInMilliSeconds } = response.data;
+    console.log(response);
+    setCookie("accessToken", accessToken, {
+      expires: new Date(refreshTokenExpirationInMilliSeconds - 10 * 60 * 1000),
+    });
     return response;
   } catch (error) {
     const errorCode = error.code;
@@ -32,11 +34,7 @@ export async function login(formData) {
 
 export async function logout() {
   try {
-    const response = await axios.get("/auth/logout", {
-      headers: {
-        Authorization: `Bearer ${getCookie("accessToken")}`,
-      },
-    });
+    const response = await axios.get("/auth/logout");
     removeCookie("accessToken");
     return response;
   } catch (error) {
@@ -53,9 +51,11 @@ export async function tokenRefresh() {
         Authorization: `Bearer ${getCookie("accessToken")}`,
       },
     });
-    const { accessToken } = response.data;
+    const { accessToken, refreshTokenExpirationInMilliSeconds } = response.data;
 
-    setCookie("accessToken", accessToken);
+    setCookie("accessToken", accessToken, {
+      expires: new Date(refreshTokenExpirationInMilliSeconds - 10 * 60 * 1000),
+    });
     return response;
   } catch (error) {
     const errorCode = error.code;
