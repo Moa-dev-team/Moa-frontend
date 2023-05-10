@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import logo from "../../assets/images/Logo.png";
 import styles from "./SignUp.module.css";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { signUp } from "../../api/auth";
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const [pwError, setPwError] = useState(false);
   const [form, setForm] = useState({
     nickname: "",
@@ -20,25 +21,9 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (form.password === form.confirm_password) {
-      try {
-        const response = await axios.post(
-          "http://localhost:8080/api/auth/register",
-          {
-            nickname: form.nickname,
-            email: form.email,
-            password: form.password,
-            // Add any other fields needed for registration, such as "role"
-          }
-        );
-        console.log(response);
-        // Redirect to another page or show a success message
-      } catch (error) {
-        console.error(error);
-        // Show an error message or handle the error
-      }
-    } else {
-      setPwError(true);
+    if (!pwError) {
+      signUp(form);
+      navigate("/login");
     }
   };
   const checkPassword = (pw1, pw2) => {

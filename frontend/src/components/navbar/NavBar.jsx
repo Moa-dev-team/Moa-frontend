@@ -7,6 +7,8 @@ import { FiMail } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import NavBarMenu from "./NavBarMenu";
 import MobileLoginButton from "./MobileLoginButton";
+import { useAuth } from "../../contexts/AuthContext";
+import { logout } from "../../api/auth";
 
 const navMenus = [
   { text: "프로젝트", path: "/projects", id: 1 },
@@ -15,13 +17,22 @@ const navMenus = [
 ];
 
 export default function NavBar() {
+  const { isUser, handleIsUser } = useAuth();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [mQuery, setMQuery] = useState(window.innerWidth < 768 ? true : false);
+
   const loginClick = () => {
     navigate("/login");
   };
-  const [mQuery, setMQuery] = useState(window.innerWidth < 768 ? true : false);
-
+  const logoutClick = async () => {
+    await logout();
+    handleIsUser();
+    navigate("/");
+  };
+  const handleMyPageClick = () => {
+    isUser ? navigate("/my-page") : navigate("/login");
+  };
   const screenChange = (event) => {
     const matches = event.matches;
     setMQuery(matches);
@@ -60,16 +71,22 @@ export default function NavBar() {
             }
           />
         </Link>
-        <Link to="/my-page">
+        <button className={styles.menus__myPageBtn} onClick={handleMyPageClick}>
           <CgProfile
             className={styles.icon}
             style={
               pathname === "/my-page" ? { color: "var(--color-blue)" } : {}
             }
           />
-        </Link>
+        </button>
         {mQuery ? (
-          <MobileLoginButton type="login" onClick={loginClick} />
+          isUser ? (
+            <MobileLoginButton onClick={logoutClick} />
+          ) : (
+            <MobileLoginButton type="login" onClick={loginClick} />
+          )
+        ) : isUser ? (
+          <SmallButton text="로그아웃" onClick={logoutClick} />
         ) : (
           <SmallButton text="로그인" onClick={loginClick} />
         )}

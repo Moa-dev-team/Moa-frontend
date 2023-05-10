@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import axios from "axios";
 import NotFound from "./pages/NotFound/NotFound";
 import Home from "./pages/Home/Home";
 import Project from "./pages/Project/Project";
@@ -18,6 +19,9 @@ import StudyDetail from "./pages/StudyDetail/StudyDetail";
 import NewStudy from "./pages/NewStudy/NewStudy";
 import UserDetail from "./pages/UserDetail/UserDetail";
 import SignUp from "./pages/SignUp/SignUp";
+
+axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.withCredentials = true;
 
 const router = createBrowserRouter([
   {
