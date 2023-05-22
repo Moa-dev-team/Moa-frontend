@@ -93,14 +93,14 @@
   color: var(--color-blue);
 }
 
-.snsLogin div {
+.snsLogin > div {
   display: flex;
   flex-basis: 100%;
   align-items: center;
   margin-top: 0.4rem;
 }
 
-.snsLogin div::before {
+.snsLogin > div::before {
   content: "";
   flex-grow: 1;
   margin: 0 1rem 0 0;
@@ -110,7 +110,7 @@
   line-height: 0;
 }
 
-.snsLogin div::after {
+.snsLogin > div::after {
   content: "";
   flex-grow: 1;
   margin: 0 0 0 1rem;
@@ -121,8 +121,6 @@
 }
 
 .snsLoginBtns {
-  display: flex;
-  justify-content: center;
   margin-top: 0.6rem;
   padding-left: 0;
 }

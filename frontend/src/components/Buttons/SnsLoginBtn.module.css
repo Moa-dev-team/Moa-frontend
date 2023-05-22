@@ -1,0 +1,24 @@
+.button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.4rem;
+  padding: 0.3rem 1rem;
+  border: 1px solid var(--color-gray);
+  border-radius: 0.2rem;
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+.button:hover {
+  border-color: var(--color-dark-gray);
+}
+
+.logo {
+  margin: 0 1rem;
+  font-size: 1.8rem;
+}
+
+.text {
+  flex-grow: 1;
+}
