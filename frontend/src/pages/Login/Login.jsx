@@ -4,9 +4,9 @@ import logo from "../../assets/images/Logo.png";
 import styles from "./Login.module.css";
 import { login } from "../../api/auth";
 import { useAuth } from "../../contexts/AuthContext";
-import SnsLoginBtn from "../../components/buttons/SnsLoginBtn";
-
-const loginBtns = [{ text: "Google" }, { text: "Github" }, { text: "Naver" }];
+import GoogleLoginBtn from "../../components/buttons/SnsLoginButtons/GoogleLoginBtn";
+import GithubLoginBtn from "../../components/buttons/SnsLoginButtons/GithubLoginBtn";
+import NaverLoginBtn from "../../components/buttons/SnsLoginButtons/NaverLoginBtn";
 
 export default function Login() {
   const { handleIsUser } = useAuth();
@@ -65,9 +65,9 @@ export default function Login() {
         <aside className={styles.snsLogin}>
           <div>sns로 로그인하기</div>
           <ul className={styles.snsLoginBtns}>
-            {loginBtns.map((loginBtn, index) => (
-              <SnsLoginBtn key={index} text={loginBtn.text} />
-            ))}
+            <GoogleLoginBtn />
+            <GithubLoginBtn />
+            <NaverLoginBtn />
           </ul>
         </aside>
       </section>
