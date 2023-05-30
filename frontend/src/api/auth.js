@@ -19,11 +19,6 @@ export async function signUp(formData) {
 export async function login(formData) {
   try {
     const response = await axios.post("/auth/login", formData);
-    // const { accessToken, refreshTokenExpirationInMilliSeconds } = response.data;
-    // console.log(response);
-    // setCookie("accessToken", accessToken, {
-    //   expires: new Date(refreshTokenExpirationInMilliSeconds - 10 * 60 * 1000),
-    // });
     setToken(response);
     return response;
   } catch (error) {
@@ -52,11 +47,6 @@ export async function tokenRefresh() {
         Authorization: `Bearer ${getCookie("accessToken")}`,
       },
     });
-    // const { accessToken, refreshTokenExpirationInMilliSeconds } = response.data;
-
-    // setCookie("accessToken", accessToken, {
-    //   expires: new Date(refreshTokenExpirationInMilliSeconds - 10 * 60 * 1000),
-    // });
     setToken(response);
     return response;
   } catch (error) {
@@ -68,12 +58,12 @@ export async function tokenRefresh() {
 
 export async function getToken(provider, code) {
   try {
-    const response = await axios.get(`auth/login/${provider}`, {
-      params: { code },
-    });
+    const response = await axios.get(`auth/login/${provider}?code=${code}`);
     setToken(response);
+    return response;
   } catch (error) {
     console.log(error.message);
+    console.log("asdf");
   }
 }
 
