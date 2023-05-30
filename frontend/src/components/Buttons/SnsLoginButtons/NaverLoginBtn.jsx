@@ -7,7 +7,7 @@ export default function NaverLoginBtn() {
     window.location.assign(
       `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${
         process.env.REACT_APP_NAVER_CLIENT_ID
-      }&&redirect_uri=http://localhost:3000/callback&state=${Math.random()
+      }&redirect_uri=http://localhost:3000/oauth2/callback/naver&state=${Math.random()
         .toString(36)
         .substring(3, 14)}`
     );

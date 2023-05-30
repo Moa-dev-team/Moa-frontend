@@ -4,9 +4,8 @@ import styles from "./SnsLoginBtn.module.css";
 
 export default function GithubLoginBtn() {
   const handelClick = () => {
-    window.location.assign(
-      `https://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&scope=user:email`
-    );
+    const authUrl = `https://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&scope=user&redirect_uri=http://localhost:3000/oauth2/callback/github`;
+    window.location.href = authUrl;
   };
 
   return (

@@ -1,21 +1,23 @@
 import React, { useEffect } from "react";
 import { getToken } from "../../api/auth";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function LoginRedirect() {
+  const { handleIsUser } = useAuth();
+  const navigate = useNavigate();
   const { provider } = useParams();
+  const location = new URL(window.location.href);
+  const code = location.searchParams.get("code");
 
   useEffect(() => {
-    const queryString = window.location.search;
-    const code = getQueryParams(queryString);
-    getToken(provider, code);
-  }, [provider]);
+    const login = async () => {
+      await getToken(provider, code);
+      handleIsUser();
+    };
+    login();
+    navigate("/", { replace: true });
+  }, []);
 
-  return <div>login callback page</div>;
-}
-
-function getQueryParams(queryString) {
-  const pairs = queryString.substring(1).split("=");
-
-  return decodeURIComponent(pairs[1]);
+  return <div>Loading...</div>;
 }
