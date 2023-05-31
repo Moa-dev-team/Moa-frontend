@@ -12,12 +12,15 @@ export default function LoginRedirect() {
 
   useEffect(() => {
     const login = async () => {
-      await getToken(provider, code);
-      handleIsUser();
+      const response = await getToken(provider, code);
+
+      if (response.status === 200) {
+        handleIsUser();
+        navigate("/", { replace: true });
+      }
     };
     login();
-    navigate("/", { replace: true });
-  }, []);
+  }, [code, handleIsUser, navigate, provider]);
 
   return <div>Loading...</div>;
 }
