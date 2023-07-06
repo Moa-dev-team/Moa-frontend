@@ -7,15 +7,17 @@ import { getToken } from "../../../api/auth";
 export default function GoogleLoginBtn() {
   const handleClick = useGoogleLogin({
     scope: "email profile",
-    onSuccess: async ({ code }) => {
-      console.log(code);
-      const response = await getToken("google", code);
-      console.log(response);
-    },
+    // onSuccess: async ({ code }) => {
+    //   console.log(code);
+    //   // const response = await getToken("google", code);
+    //   // console.log(response);
+    // },
     onError: (errorResponse) => {
       console.error(errorResponse);
     },
     flow: "auth-code",
+    redirect_uri: "http://localhost:3000/oauth2/callback/google",
+    ux_mode: "redirect",
   });
 
   return (

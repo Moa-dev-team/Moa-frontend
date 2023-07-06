@@ -62,6 +62,7 @@ export async function getToken(provider, code) {
     setToken(response);
     return response;
   } catch (error) {
+    console.log(error);
     console.log(error.message);
     console.log("asdf");
   }
