@@ -15,7 +15,7 @@ body {
 }
 
 #root {
-  @apply w-full max-w-6xl h-full;
+  @apply w-full h-full;
 }
 
 code {
