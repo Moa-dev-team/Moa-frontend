@@ -8,6 +8,7 @@ module.exports = {
       },
       padding: {
         buttonY: "2px",
+        outlet: "72.22px",
       },
     },
   },

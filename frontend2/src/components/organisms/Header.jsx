@@ -10,7 +10,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   return (
-    <header className="px-8 py-4 border-b">
+    <header className="fixed top-0 w-full px-8 py-4 border-b bg-white">
       <nav className="flex justify-between">
         <LinkedIcon path="/" src={logoImage} alt="logo" width="w-10">
           <h2 className="ml-3 text-3xl font-semibold">Moa</h2>
