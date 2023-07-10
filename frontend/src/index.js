@@ -19,6 +19,7 @@ import StudyDetail from "./pages/StudyDetail/StudyDetail";
 import NewStudy from "./pages/NewStudy/NewStudy";
 import UserDetail from "./pages/UserDetail/UserDetail";
 import SignUp from "./pages/SignUp/SignUp";
+import LoginRedirect from "./pages/LoginRedirect/LoginRedirect";
 
 axios.defaults.baseURL = "http://localhost:8080";
 axios.defaults.withCredentials = true;
@@ -42,6 +43,7 @@ const router = createBrowserRouter([
       { path: "/sign-up", element: <SignUp /> },
       { path: "/message", element: <Message /> },
       { path: "/my-page", element: <MyPage /> },
+      { path: "/oauth2/callback/:provider", element: <LoginRedirect /> },
     ],
   },
 ]);

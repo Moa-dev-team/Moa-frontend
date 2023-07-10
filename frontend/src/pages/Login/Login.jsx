@@ -1,36 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/Logo.png";
-import { FcGoogle } from "react-icons/fc";
-import { SiNaver, SiGithub } from "react-icons/si";
 import styles from "./Login.module.css";
-import LoginButton from "../../components/buttons/LoginButton";
-import axios from "axios";
 import { login } from "../../api/auth";
 import { useAuth } from "../../contexts/AuthContext";
-
-const loginSNS = [
-  {
-    id: 1,
-    text: "구글",
-    logo: <FcGoogle className={styles.google} />,
-  },
-  {
-    id: 2,
-    text: "네이버",
-    logo: (
-      <SiNaver
-        style={{ color: "#03c75b", borderRadius: "50%" }}
-        className={styles.naver}
-      />
-    ),
-  },
-  {
-    id: 3,
-    text: "깃허브",
-    logo: <SiGithub className={styles.github} />,
-  },
-];
+import GoogleLoginBtn from "../../components/buttons/SnsLoginButtons/GoogleLoginBtn";
+import GithubLoginBtn from "../../components/buttons/SnsLoginButtons/GithubLoginBtn";
+import NaverLoginBtn from "../../components/buttons/SnsLoginButtons/NaverLoginBtn";
 
 export default function Login() {
   const { handleIsUser } = useAuth();
@@ -89,9 +65,9 @@ export default function Login() {
         <aside className={styles.snsLogin}>
           <div>sns로 로그인하기</div>
           <ul className={styles.snsLoginBtns}>
-            {loginSNS.map((sns) => (
-              <LoginButton key={sns.id} sns={sns} />
-            ))}
+            <GoogleLoginBtn />
+            <GithubLoginBtn />
+            <NaverLoginBtn />
           </ul>
         </aside>
       </section>
