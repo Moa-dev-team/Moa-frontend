@@ -1,5 +1,7 @@
 import instance from "./index";
 
-export const login = (provider, code) => {
+export const login = (data) => {
+  const { provider, code } = data;
+
   return instance.get(`/login/${provider}?code=${code}`);
 };
