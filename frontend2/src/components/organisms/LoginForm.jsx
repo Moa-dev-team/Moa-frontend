@@ -5,7 +5,7 @@ import githubLogo from "../../assets/githubLogo.png";
 
 export default function LoginForm() {
   const handleClick = () => {
-    const REDIRECT_URL = "http://localhost:3000/callback?provider=github";
+    const REDIRECT_URL = "http://localhost:3000/oauth2/callback/github";
     window.location.assign(
       `https://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&redirect_uri=${REDIRECT_URL}`
     );
