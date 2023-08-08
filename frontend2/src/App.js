@@ -6,7 +6,7 @@ function App() {
   return (
     <CookiesProvider>
       <Header />
-      <div className="pt-outlet">
+      <div className="mt-[72.22px]">
         <Outlet />
       </div>
     </CookiesProvider>

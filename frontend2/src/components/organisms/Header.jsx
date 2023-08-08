@@ -38,12 +38,8 @@ export default function Header() {
             width="w-8"
           />
           <Button
-            margin="ml-6"
-            padding="px-5 py-buttonY"
-            textsize="lg"
-            fontsize="bold"
-            color="blue"
-            radius="lg"
+            className="ml-6 px-5 py-[2px]"
+            color="transparent"
             onClick={handleLoginClick}
           >
             {isLoggedIn ? "로그아웃" : "로그인"}

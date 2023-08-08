@@ -16,19 +16,17 @@ const TEXTSIZE = {
   lg: "text-lg",
 };
 
-const FONTSIZE = {
+const FONTWEIGHT = {
   semibold: "font-semibold",
   bold: "font-bold",
 };
 
 export default function Button({
   children,
+  className,
   type,
-  margin,
-  padding,
-  height,
   textsize,
-  fontsize,
+  fontWeight,
   color,
   radius = "",
   onClick = () => {},
@@ -36,7 +34,7 @@ export default function Button({
   return (
     <button
       type={type}
-      className={`${padding} ${margin} ${height} ${TEXTSIZE[textsize]} ${FONTSIZE[fontsize]} ${COLOR[color]} ${RADIUS[radius]}`}
+      className={`${className} ${TEXTSIZE[textsize]} ${FONTWEIGHT[fontWeight]} ${COLOR[color]} ${RADIUS[radius]}`}
       onClick={onClick}
     >
       {children}
