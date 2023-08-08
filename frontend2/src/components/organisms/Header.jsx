@@ -6,8 +6,8 @@ import Box from "../atoms/Box";
 import Button from "../atoms/Button";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { removeCookie } from "../../utils/cookie";
 import { setUser } from "../../store/slices/userSlice";
+import { removeCookie } from "../../utils/cookie";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ export default function Header() {
 
   const handleLoginClick = () => {
     if (isLoggedIn) {
-      removeCookie("accessToken");
+      removeCookie("accessToken", { path: "/" });
       dispatch(setUser({ isLoggedIn: false }));
       navigate("/");
     } else {

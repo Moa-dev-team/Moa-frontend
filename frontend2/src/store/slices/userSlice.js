@@ -26,6 +26,7 @@ export const loginRequest = createAsyncThunk("user/login", async (data) => {
   const response = await login({ provider, code });
 
   return {
+    expireTime: response.data.refreshTokenExpirationInMilliSeconds,
     accessToken: response.headers.authorization,
   };
 });
