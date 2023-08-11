@@ -16,7 +16,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <CookiesProvider>
         <Header />
-        <div className="mt-[72.22px]">
+        <div className="mt-[72.22px] max-w-6xl mx-auto">
           <Outlet />
         </div>
       </CookiesProvider>

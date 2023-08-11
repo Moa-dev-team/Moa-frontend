@@ -1,6 +1,7 @@
 import axios from "axios";
+import { getCookie } from "../utils/cookie";
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: process.env.REACT_APP_API_BASEURL,
   timeout: 1000 * 5,
   withCredentials: true,
@@ -9,4 +10,19 @@ const instance = axios.create({
   },
 });
 
-export default instance;
+export const authInstance = axios.create({
+  baseURL: process.env.REACT_APP_API_BASEURL,
+  timeout: 1000 * 5,
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+authInstance.interceptors.request.use((config) => {
+  const accessToken = getCookie("accessToken");
+  if (accessToken) {
+    config.headers["Authorization"] = `Bearer ${getCookie("accessToken")}`;
+  }
+  return config;
+});
