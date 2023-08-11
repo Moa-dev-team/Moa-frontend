@@ -26,3 +26,12 @@ authInstance.interceptors.request.use((config) => {
   }
   return config;
 });
+
+authInstance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    console.log(error);
+  }
+);

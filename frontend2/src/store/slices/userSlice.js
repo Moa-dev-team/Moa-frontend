@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { getCookie } from "../../utils/cookie";
-import { login } from "../../apis/auth";
+import { login, logout } from "../../apis/auth";
 
 const initialState = {
   isLoggedIn: Boolean(getCookie("accessToken")),
@@ -18,6 +18,9 @@ export const userSlice = createSlice({
     builder.addCase(loginRequest.fulfilled, (state) => {
       state.isLoggedIn = true;
     });
+    builder.addCase(logoutRequest.fulfilled, (state) => {
+      state.isLoggedIn = false;
+    });
   },
 });
 
@@ -26,9 +29,12 @@ export const loginRequest = createAsyncThunk("user/login", async (data) => {
   const response = await login({ provider, code });
 
   return {
-    expireTime: response.data.refreshTokenExpirationInMilliSeconds,
     accessToken: response.headers.authorization,
   };
+});
+
+export const logoutRequest = createAsyncThunk("user/logout", async () => {
+  await logout();
 });
 
 export const { setUser } = userSlice.actions;
