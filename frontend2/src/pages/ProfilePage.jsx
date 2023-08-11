@@ -5,9 +5,7 @@ import InputGroup from "../components/molecules/InputGroup";
 import Photo from "../components/molecules/Photo";
 
 export default function ProfilePage() {
-  const { isLoading, error, data } = useQuery(["profile"], getUserProfile, {
-    staleTime: 1000 * 60 * 5,
-  });
+  const { isLoading, error, data } = useQuery(["profile"], getUserProfile);
 
   if (isLoading) {
     return <div>Loading...</div>;

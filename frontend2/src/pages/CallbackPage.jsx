@@ -16,8 +16,9 @@ export default function CallbackPage() {
       try {
         const response = await dispatch(loginRequest({ provider, code }));
         const accessToken = response.payload.accessToken.split(" ")[1];
+        const expires = new Date(response.payload.expireTime);
 
-        setCookie("accessToken", accessToken, { path: "/" });
+        setCookie("accessToken", accessToken, { path: "/", expires });
         navigate("/");
       } catch (error) {
         console.log(error);

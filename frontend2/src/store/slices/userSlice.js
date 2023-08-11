@@ -30,6 +30,7 @@ export const loginRequest = createAsyncThunk("user/login", async (data) => {
 
   return {
     accessToken: response.headers.authorization,
+    expireTime: response.data.refreshTokenExpirationInMilliSeconds,
   };
 });
 
