@@ -6,9 +6,8 @@ module.exports = {
       backgroundColor: {
         blue: "#2557f5",
       },
-      padding: {
-        buttonY: "2px",
-        outlet: "72.22px",
+      width: {
+        inherit: "inherit",
       },
     },
   },

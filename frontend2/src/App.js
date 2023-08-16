@@ -1,14 +1,26 @@
 import { Outlet } from "react-router-dom";
 import Header from "./components/organisms/Header";
+import { CookiesProvider } from "react-cookie";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 0,
+    },
+  },
+});
 
 function App() {
   return (
-    <>
-      <Header />
-      <div className="pt-outlet">
-        <Outlet />
-      </div>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <CookiesProvider>
+        <Header />
+        <div className="mt-[72.22px] max-w-6xl mx-auto">
+          <Outlet />
+        </div>
+      </CookiesProvider>
+    </QueryClientProvider>
   );
 }
 

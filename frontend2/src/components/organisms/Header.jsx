@@ -6,19 +6,23 @@ import Box from "../atoms/Box";
 import Button from "../atoms/Button";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { logoutRequest } from "../../store/slices/userSlice";
 import { removeCookie } from "../../utils/cookie";
-import { setUser } from "../../store/slices/userSlice";
 
 export default function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
-  const handleLoginClick = () => {
+  const handleLoginClick = async () => {
     if (isLoggedIn) {
-      removeCookie("accessToken");
-      dispatch(setUser({ isLoggedIn: false }));
-      navigate("/");
+      try {
+        await dispatch(logoutRequest());
+        removeCookie("accessToken", { path: "/" });
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+      }
     } else {
       navigate("/login");
     }
@@ -38,12 +42,8 @@ export default function Header() {
             width="w-8"
           />
           <Button
-            margin="ml-6"
-            padding="px-5 py-buttonY"
-            textsize="lg"
-            fontsize="bold"
-            color="blue"
-            radius="lg"
+            className="ml-6 px-5 py-[2px]"
+            color="transparent"
             onClick={handleLoginClick}
           >
             {isLoggedIn ? "로그아웃" : "로그인"}

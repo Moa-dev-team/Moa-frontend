@@ -1,12 +1,75 @@
 import axios from "axios";
+import { getCookie, setCookie } from "../utils/cookie";
+import { refresh } from "./auth";
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: process.env.REACT_APP_API_BASEURL,
-  // axios 요청을 했을때 오류를 보내주지 않거나, 대기시간이 오래 걸리는 경우 timeout을 통해 요청을 중단하고 처리할 수 있다.
   timeout: 1000 * 5,
+  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
 });
 
-export default instance;
+instance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  async (error) => {
+    const {
+      response: { status },
+    } = error;
+
+    if (status === 401) {
+      window.location.replace("/login");
+      return;
+    }
+    return Promise.reject(error);
+  }
+);
+
+export const authInstance = axios.create({
+  baseURL: process.env.REACT_APP_API_BASEURL,
+  timeout: 1000 * 5,
+  withCredentials: true,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+authInstance.interceptors.request.use((config) => {
+  const accessToken = getCookie("accessToken");
+  if (accessToken) {
+    config.headers["Authorization"] = `Bearer ${getCookie("accessToken")}`;
+  }
+  return config;
+});
+
+authInstance.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  async (error) => {
+    const {
+      config,
+      response: { status },
+    } = error;
+
+    if (status === 401) {
+      const originRequest = config;
+      const response = await refresh();
+
+      if (response.status === 200) {
+        const accessToken = response.headers.authorization.split(" ")[1];
+        const expires = new Date(
+          response.data.refreshTokenExpirationInMilliSeconds
+        );
+
+        setCookie("accessToken", accessToken, { path: "/", expires });
+        originRequest.headers.Authorization = `Bearer ${accessToken}`;
+        return axios(originRequest);
+      }
+      return Promise.reject(error);
+    }
+  }
+);
