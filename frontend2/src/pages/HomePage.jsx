@@ -1,11 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import { getUsers } from "../apis/user";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import useIntersectionObserver from "../hooks/useIntersectionObserver";
+import Loader from "../components/molecules/Loader";
+import UserGrid from "../components/templates/UserGrid";
 
 export default function HomePage() {
   const bottomObserver = useRef(null);
-  const { fetchNextPage, hasNextPage, data, error, isLoading } =
+  const { fetchNextPage, isFetchingNextPage, hasNextPage, data, error } =
     useInfiniteQuery(
       ["userList"],
       ({ pageParam = null }) => getUsers(pageParam),
@@ -23,25 +25,15 @@ export default function HomePage() {
     return () => unobserve(observer);
   }, [bottomObserver, hasNextPage, observe, unobserve]);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
     return <div>{error.message}</div>;
   }
   return (
-    <main className="py-10">
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 py-4">
-        {data.pages.map((page) =>
-          page.members.map((member, index) => (
-            <li className="h-56 bg-blue" key={index}>
-              {member.name}
-            </li>
-          ))
-        )}
-      </ul>
-      <div ref={bottomObserver}></div>
+    <main className="py-4">
+      <UserGrid userData={data.pages} />
+      <div ref={bottomObserver} className="flex justify-center items-center">
+        {isFetchingNextPage && <Loader size={50} />}
+      </div>
     </main>
   );
 }
