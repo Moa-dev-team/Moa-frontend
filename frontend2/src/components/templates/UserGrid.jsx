@@ -1,15 +1,40 @@
-import React from "react";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import React, { useEffect, useRef } from "react";
+import { getUsers } from "../../apis/user";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import UserList from "../organisms/UserList";
+import Loader from "../molecules/Loader";
 
-export default function UserGrid({ userData }) {
+export default function UserGrid() {
+  const bottomObserver = useRef(null);
+  const { fetchNextPage, isFetchingNextPage, hasNextPage, data, error } =
+    useInfiniteQuery(
+      ["userList"],
+      ({ pageParam = null }) => getUsers(pageParam),
+      {
+        getNextPageParam: (lastPage) => lastPage.nextCursor,
+        suspense: true,
+      }
+    );
+  const [observe, unobserve] = useIntersectionObserver(fetchNextPage);
+
+  useEffect(() => {
+    if (!hasNextPage || !bottomObserver) return;
+    const observer = bottomObserver.current;
+    observe(observer);
+
+    return () => unobserve(observer);
+  }, [bottomObserver, hasNextPage, observe, unobserve]);
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 mb-4">
-      {userData.map((page) =>
-        page.members.map((member, index) => (
-          <li className="h-56 bg-blue" key={index}>
-            {member.name}
-          </li>
-        ))
-      )}
-    </ul>
+    <div>
+      <UserList userData={data.pages} />
+      <div ref={bottomObserver} className="flex justify-center items-center">
+        {isFetchingNextPage && <Loader size={50} />}
+      </div>
+    </div>
   );
 }
