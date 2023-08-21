@@ -1,0 +1,40 @@
+import { useInfiniteQuery } from "@tanstack/react-query";
+import React, { useEffect, useRef } from "react";
+import { getUsers } from "../../apis/user";
+import useIntersectionObserver from "../../hooks/useIntersectionObserver";
+import UserList from "../organisms/UserList";
+import Loader from "../molecules/Loader";
+
+export default function UserGrid() {
+  const bottomObserver = useRef(null);
+  const { fetchNextPage, isFetchingNextPage, hasNextPage, data, error } =
+    useInfiniteQuery(
+      ["userList"],
+      ({ pageParam = null }) => getUsers(pageParam),
+      {
+        getNextPageParam: (lastPage) => lastPage.nextCursor,
+        suspense: true,
+      }
+    );
+  const [observe, unobserve] = useIntersectionObserver(fetchNextPage);
+
+  useEffect(() => {
+    if (!hasNextPage || !bottomObserver) return;
+    const observer = bottomObserver.current;
+    observe(observer);
+
+    return () => unobserve(observer);
+  }, [bottomObserver, hasNextPage, observe, unobserve]);
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
+  return (
+    <div>
+      <UserList userData={data.pages} />
+      <div ref={bottomObserver} className="flex justify-center items-center">
+        {isFetchingNextPage && <Loader size={50} />}
+      </div>
+    </div>
+  );
+}

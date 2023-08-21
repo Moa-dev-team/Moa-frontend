@@ -22,8 +22,12 @@ export default function ProfilePage() {
         src={data.data.imageUrl}
         alt={data.data.name}
       />
-      <InputGroup label="이름" value={data.data.name} disabled />
-      <InputGroup label="이메일" value={data.data.email} disabled />
+      <InputGroup value={data.data.name} disabled>
+        이름
+      </InputGroup>
+      <InputGroup value={data.data.email} disabled>
+        이메일
+      </InputGroup>
     </main>
   );
 }
