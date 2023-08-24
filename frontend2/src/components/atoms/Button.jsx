@@ -29,6 +29,7 @@ export default function Button({
   fontWeight,
   color,
   radius = "",
+  disabled,
   onClick = () => {},
 }) {
   return (
@@ -36,6 +37,7 @@ export default function Button({
       type={type}
       className={`${className} ${TEXTSIZE[textsize]} ${FONTWEIGHT[fontWeight]} ${COLOR[color]} ${RADIUS[radius]}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>
