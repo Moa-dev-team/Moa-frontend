@@ -15,11 +15,18 @@ export default function CallbackPage() {
       const code = urlParams.get("code");
       try {
         const response = await dispatch(loginRequest({ provider, code }));
-        const accessToken = response.payload.accessToken.split(" ")[1];
-        const expires = new Date(response.payload.expireTime);
+        const { accessToken, expireTime, firstLogin } = response.payload;
+        const expires = new Date(expireTime);
 
-        setCookie("accessToken", accessToken, { path: "/", expires });
-        navigate("/");
+        setCookie("accessToken", accessToken.split(" ")[1], {
+          path: "/",
+          expires,
+        });
+        if (firstLogin) {
+          navigate("/profile");
+        } else {
+          navigate("/");
+        }
       } catch (error) {
         console.log(error);
       }

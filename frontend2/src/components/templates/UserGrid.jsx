@@ -13,7 +13,6 @@ export default function UserGrid() {
       ({ pageParam = null }) => getUsers(pageParam),
       {
         getNextPageParam: (lastPage) => lastPage.nextCursor,
-        suspense: true,
       }
     );
   const [observe, unobserve] = useIntersectionObserver(fetchNextPage);
