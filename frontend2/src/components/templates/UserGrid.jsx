@@ -5,12 +5,19 @@ import useIntersectionObserver from "../../hooks/useIntersectionObserver";
 import UserList from "../organisms/UserList";
 import Loader from "../molecules/Loader";
 
-export default function UserGrid() {
+export default function UserGrid({ categories }) {
   const bottomObserver = useRef(null);
   const { fetchNextPage, isFetchingNextPage, hasNextPage, data, error } =
     useInfiniteQuery(
-      ["userList"],
-      ({ pageParam = null }) => getUsers(pageParam),
+      ["userList", categories],
+      ({ pageParam = null }) => {
+        const count = getCategoryCount(categories);
+        return getUsers(
+          count === 0 ? {} : { categories: getAllCategories(categories) },
+          pageParam,
+          20
+        );
+      },
       {
         getNextPageParam: (lastPage) => lastPage.nextCursor,
       }
@@ -29,11 +36,17 @@ export default function UserGrid() {
     return <div>{error.message}</div>;
   }
   return (
-    <div>
+    <section className="grow">
       <UserList userData={data.pages} />
       <div ref={bottomObserver} className="flex justify-center items-center">
         {isFetchingNextPage && <Loader size={50} />}
       </div>
-    </div>
+    </section>
   );
 }
+
+const getCategoryCount = (categories) =>
+  Object.values(categories).reduce((prev, cur) => prev + cur.length, 0);
+
+const getAllCategories = (categories) =>
+  [].concat(...Object.values(categories));
