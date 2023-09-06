@@ -11,6 +11,7 @@ import CallbackPage from "./pages/CallbackPage";
 import store from "./store";
 import { Provider } from "react-redux";
 import PrivateRoute from "./utils/PrivateRoute";
+import UserDetailPage from "./pages/UserDetailPage";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, element: <HomePage /> },
+      {
+        path: "/user/:userId",
+        element: <UserDetailPage />,
+      },
       {
         path: "/profile",
         element: (
