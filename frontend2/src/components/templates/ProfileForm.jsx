@@ -41,8 +41,8 @@ export default function ProfileForm() {
   });
 
   const handleSubmit = (formData) => {
-    const data = formData.skills.map((skill) => skill.value);
-    updateProfile.mutate(data);
+    const skills = formData.skills.map((skill) => skill.value);
+    updateProfile.mutate({ ...formData, skills });
     setIsModifying(true);
   };
 

@@ -6,12 +6,9 @@ export default function useProfile() {
 
   const profileQuery = useQuery(["profile"], getUserProfile);
 
-  const updateProfile = useMutation(
-    (data) => setUserProfile({ skills: data }),
-    {
-      onSuccess: () => queryClient.invalidateQueries(["profile"]),
-    }
-  );
+  const updateProfile = useMutation((data) => setUserProfile(data), {
+    onSuccess: () => queryClient.invalidateQueries(["profile"]),
+  });
 
   return { profileQuery, updateProfile };
 }

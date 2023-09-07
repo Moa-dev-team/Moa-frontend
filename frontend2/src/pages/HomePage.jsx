@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from "react";
-import UserGridSkeleton from "../components/templates/UserGridSkeleton";
+import UserGridSkeleton from "../components/molecules/UserGridSkeleton";
 import UserGrid from "../components/templates/UserGrid";
 import CategoryFilter from "../components/organisms/CategoryFilter";
 
