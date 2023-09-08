@@ -4,7 +4,7 @@ import CategoryGroup from "../molecules/CategoryGroup";
 
 export default function CategoryFilter({ categories, onClick }) {
   return (
-    <aside className="w-60 px-5 shrink-0">
+    <aside className="w-56 px-5 shrink-0">
       <ul>
         {CATEGORIE_FILTERS.map((category) => (
           <CategoryGroup

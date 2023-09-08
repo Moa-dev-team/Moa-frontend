@@ -37,3 +37,11 @@ export const CATEGORIE_FILTERS = [
     languages: [{ id: uuidv4(), value: "Python" }],
   },
 ];
+
+export const LANGUAGE_LOGO = {
+  React: "./images/react.png",
+  JavaScript: "./images/javascript.png",
+  Spring: "./images/spring.png",
+  Java: "./images/java.png",
+  Python: "./images/python.png",
+};
