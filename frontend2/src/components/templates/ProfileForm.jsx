@@ -4,17 +4,18 @@ import Select from "react-select";
 import Button from "../atoms/Button";
 import Box from "../atoms/Box";
 import Photo from "../molecules/Photo";
-import { CATEGORIES } from "../../utils/constant";
+import { CATEGORIES, JOB, JOBS } from "../../utils/constant";
 import Input from "../molecules/Input";
 import useProfile from "../../hooks/useProfile";
+import Container from "../atoms/Container";
 
 export default function ProfileForm() {
-  const [isModifying, setIsModifying] = useState(true);
+  const [isModifying, setIsModifying] = useState(false);
   const {
     profileQuery: {
       error,
       data: {
-        data: { name, skills, imageUrl, email },
+        data: { name, skills, job, imageUrl, email },
       },
     },
     updateProfile,
@@ -27,8 +28,9 @@ export default function ProfileForm() {
   } = useForm({
     mode: "onSubmit",
     defaultValues: {
-      name: name,
+      name,
       skills: skills.map((skill) => ({ value: skill, label: skill })),
+      job: { value: job, label: JOB[job] },
     },
   });
 
@@ -41,8 +43,13 @@ export default function ProfileForm() {
   });
 
   const handleSubmit = (formData) => {
+    const job = formData.job.value;
     const skills = formData.skills.map((skill) => skill.value);
-    updateProfile.mutate({ ...formData, skills });
+    updateProfile.mutate({ ...formData, skills, job });
+    setIsModifying(false);
+  };
+  const handleModifyClick = (e) => {
+    e.preventDefault();
     setIsModifying(true);
   };
 
@@ -51,53 +58,81 @@ export default function ProfileForm() {
   }
   return (
     <form id="user-form" onSubmit={onSubmit(handleSubmit)}>
-      <Photo width="w-56" className="rounded-full" src={imageUrl} alt={name} />
-      <Box className="flex flex-col">
-        <Input
-          id="name"
-          type="text"
-          disabled={isModifying}
-          ariaInvalid={
-            isSubmitted ? (errors.name ? "true" : "false") : undefined
-          }
-          {...nameRegister}
-        >
-          이름
-        </Input>
-        {errors.name && <small role="alert">{errors.name.message}</small>}
-        <Input id="email" type="email" disabled={true} value={email}>
-          이메일
-        </Input>
-        <label htmlFor="skills">기술 스택</label>
-        <Controller
-          name="skills"
-          control={control}
-          render={({ field: { onChange, value, ref } }) => (
-            <Select
-              inputId="skills"
-              closeMenuOnSelect={false}
-              isMulti
-              isDisabled={isModifying}
-              options={CATEGORIES}
-              ref={ref}
-              value={value}
-              onChange={(option) => onChange(option)}
-              isOptionDisabled={(option) => option.isdisabled}
+      <Container className="flex">
+        <div>
+          <Photo
+            width="w-56"
+            className="rounded-full"
+            src={imageUrl}
+            alt={name}
+          />
+          <Box className="flex flex-col">
+            <Input
+              id="name"
+              type="text"
+              disabled={!isModifying}
+              ariaInvalid={
+                isSubmitted ? (errors.name ? "true" : "false") : undefined
+              }
+              {...nameRegister}
+            >
+              이름
+            </Input>
+            {errors.name && <small role="alert">{errors.name.message}</small>}
+            <Input id="email" type="email" disabled={true} value={email}>
+              이메일
+            </Input>
+            <label htmlFor="job" className="font-bold">
+              직무
+            </label>
+            <Controller
+              name="job"
+              control={control}
+              render={({ field: { onChange, value, ref } }) => (
+                <Select
+                  inputId="job"
+                  isDisabled={!isModifying}
+                  options={JOBS}
+                  ref={ref}
+                  value={value}
+                  onChange={(option) => onChange(option)}
+                  isOptionDisabled={(option) => option.isdisabled}
+                />
+              )}
             />
-          )}
-        />
-      </Box>
-      <Button
-        type="button"
-        color="blue"
-        disabled={!isModifying}
-        onClick={() => setIsModifying(false)}
-      >
-        수정
-      </Button>
-      <Button type="submit" color="blue" disabled={isModifying || isSubmitting}>
-        저장
-      </Button>
+            <label htmlFor="skills" className="font-bold">
+              기술 스택
+            </label>
+            <Controller
+              name="skills"
+              control={control}
+              render={({ field: { onChange, value, ref } }) => (
+                <Select
+                  inputId="skills"
+                  closeMenuOnSelect={false}
+                  isMulti
+                  isDisabled={!isModifying}
+                  options={CATEGORIES}
+                  ref={ref}
+                  value={value}
+                  onChange={(option) => onChange(option)}
+                  isOptionDisabled={(option) => option.isdisabled}
+                />
+              )}
+            />
+          </Box>
+        </div>
+        <div></div>
+      </Container>
+      {isModifying ? (
+        <Button type="submit" color="blue" disabled={isSubmitting}>
+          저장
+        </Button>
+      ) : (
+        <Button type="button" color="blue" onClick={handleModifyClick}>
+          수정
+        </Button>
+      )}
     </form>
   );
 }

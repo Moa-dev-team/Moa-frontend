@@ -45,3 +45,15 @@ export const LANGUAGE_LOGO = {
   Java: "./images/java.png",
   Python: "./images/python.png",
 };
+
+export const JOBS = [
+  { label: "백엔드", value: "Backend" },
+  { label: "프론트엔드", value: "Frontend" },
+  { label: "학생", value: "Student" },
+];
+
+export const JOB = {
+  Student: "학생",
+  Backend: "백엔드",
+  Frontend: "프론트엔드",
+};
