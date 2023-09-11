@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import Select from "react-select";
+import { useForm } from "react-hook-form";
 import Button from "../atoms/Button";
 import Box from "../atoms/Box";
 import Photo from "../molecules/Photo";
@@ -8,6 +7,7 @@ import { CATEGORIES, JOB, JOBS } from "../../utils/constant";
 import Input from "../molecules/Input";
 import useProfile from "../../hooks/useProfile";
 import Container from "../atoms/Container";
+import FormSelector from "../molecules/FormSelector";
 
 export default function ProfileForm() {
   const [isModifying, setIsModifying] = useState(false);
@@ -82,43 +82,21 @@ export default function ProfileForm() {
             <Input id="email" type="email" disabled={true} value={email}>
               이메일
             </Input>
-            <label htmlFor="job" className="font-bold">
-              직무
-            </label>
-            <Controller
+            <FormSelector
               name="job"
+              label="직무"
+              isMulti={false}
+              isModifying={isModifying}
+              options={JOBS}
               control={control}
-              render={({ field: { onChange, value, ref } }) => (
-                <Select
-                  inputId="job"
-                  isDisabled={!isModifying}
-                  options={JOBS}
-                  ref={ref}
-                  value={value}
-                  onChange={(option) => onChange(option)}
-                  isOptionDisabled={(option) => option.isdisabled}
-                />
-              )}
             />
-            <label htmlFor="skills" className="font-bold">
-              기술 스택
-            </label>
-            <Controller
+            <FormSelector
               name="skills"
+              label="기술 스택"
+              isMulti={true}
+              isModifying={isModifying}
+              options={CATEGORIES}
               control={control}
-              render={({ field: { onChange, value, ref } }) => (
-                <Select
-                  inputId="skills"
-                  closeMenuOnSelect={false}
-                  isMulti
-                  isDisabled={!isModifying}
-                  options={CATEGORIES}
-                  ref={ref}
-                  value={value}
-                  onChange={(option) => onChange(option)}
-                  isOptionDisabled={(option) => option.isdisabled}
-                />
-              )}
             />
           </Box>
         </div>
