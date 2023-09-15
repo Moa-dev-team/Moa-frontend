@@ -3,12 +3,13 @@ import React from "react";
 import { getUserProfileById } from "../../apis/profile";
 import Photo from "../molecules/Photo";
 import { JOB } from "../../utils/constant";
+import Editor from "../molecules/Editor";
 
 export default function UserProfile({ userId }) {
   const {
     error,
     data: {
-      data: { email, imageUrl, name, skills, job },
+      data: { email, imageUrl, name, skills, job, introduction },
     },
   } = useQuery(["profile", userId], () => getUserProfileById(userId));
 
@@ -22,6 +23,7 @@ export default function UserProfile({ userId }) {
       <p>{name}</p>
       <p>{JOB[job]}</p>
       <p>{skills.join(",")}</p>
+      <Editor introduction={introduction} isModifying={false} />
     </div>
   );
 }

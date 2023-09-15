@@ -8,6 +8,7 @@ export default function FormSelector({
   control,
   isMulti,
   isModifying,
+  autoClose,
   options,
 }) {
   return (
@@ -21,7 +22,7 @@ export default function FormSelector({
         render={({ field: { onChange, value, ref } }) => (
           <Select
             inputId={name}
-            closeMenuOnSelect={false}
+            closeMenuOnSelect={autoClose}
             isMulti={isMulti}
             isDisabled={!isModifying}
             options={options}
