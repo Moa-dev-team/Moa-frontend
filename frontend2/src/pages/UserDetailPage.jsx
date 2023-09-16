@@ -7,7 +7,7 @@ export default function UserDetailPage() {
   const { userId } = useParams();
 
   return (
-    <main>
+    <main className="flex gap-16 mb-6 px-4 py-12">
       <Suspense fallback={<UserProfileSkeleton />}>
         <UserProfile userId={userId} />
       </Suspense>
