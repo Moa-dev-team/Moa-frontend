@@ -25,14 +25,25 @@ export const userSlice = createSlice({
 });
 
 export const loginRequest = createAsyncThunk("user/login", async (data) => {
-  const { provider, code } = data;
-  const response = await login({ provider, code });
+  try {
+    const { provider, code } = data;
+    const response = await login({ provider, code });
 
-  return {
-    accessToken: response.headers.authorization,
-    expireTime: response.data.refreshTokenExpirationInMilliSeconds,
-    firstLogin: response.data.firstLogin,
-  };
+    return {
+      accessToken: response.headers.authorization,
+      expireTime: response.data.refreshTokenExpirationInMilliSeconds,
+      firstLogin: response.data.firstLogin,
+    };
+  } catch (error) {
+    const { data, status } = error.response;
+    if (
+      status === 400 &&
+      data === "이미 [google] 으로 가입된 계정이 존재합니다."
+    ) {
+      window.location.replace("http://localhost:3000/login_fail");
+    }
+    console.log(error);
+  }
 });
 
 export const logoutRequest = createAsyncThunk("user/logout", async () => {

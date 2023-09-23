@@ -13,6 +13,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 import PrivateRoute from "./utils/PrivateRoute";
 import UserDetailPage from "./pages/UserDetailPage";
+import LoginFailPage from "./pages/LoginFailPage";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <LoginPage />,
+  },
+  {
+    path: "/login_fail",
+    element: <LoginFailPage />,
   },
   {
     path: "/oauth2/callback/:provider",

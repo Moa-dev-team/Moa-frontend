@@ -7,10 +7,13 @@ import { useNavigate } from "react-router-dom";
 export default function GoogleLoginButton() {
   const navigate = useNavigate();
   const handleClick = useGoogleLogin({
+    scope: "email profile",
+    flow: "auth-code",
+    redirect_uri: "http://localhost:3000/oauth2/callback/google",
+    ux_mode: "redirect",
     onSuccess: (codeResponse) => {
       navigate(`/oauth2/callback/google?code=${codeResponse.code}`);
     },
-    flow: "auth-code",
   });
 
   return (
