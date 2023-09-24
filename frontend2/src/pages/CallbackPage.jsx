@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { loginRequest } from "../store/slices/userSlice";
 import { setCookie } from "../utils/cookie";
+import Loader from "../components/molecules/Loader";
 
 export default function CallbackPage() {
   const { provider } = useParams();
@@ -34,5 +35,9 @@ export default function CallbackPage() {
     loginReq();
   }, [provider, dispatch, navigate]);
 
-  return <div>Loading...</div>;
+  return (
+    <main className="flex justify-center items-center w-full h-full">
+      <Loader size={50} />
+    </main>
+  );
 }
