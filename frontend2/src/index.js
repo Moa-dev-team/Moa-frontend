@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -12,6 +13,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 import PrivateRoute from "./utils/PrivateRoute";
 import UserDetailPage from "./pages/UserDetailPage";
+import LoginFailPage from "./pages/LoginFailPage";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,10 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
+    path: "/login_fail",
+    element: <LoginFailPage />,
+  },
+  {
     path: "/oauth2/callback/:provider",
     element: <CallbackPage />,
   },
@@ -47,9 +53,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
   <Provider store={store}>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
+    <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </GoogleOAuthProvider>
   </Provider>
   // </React.StrictMode>
 );
