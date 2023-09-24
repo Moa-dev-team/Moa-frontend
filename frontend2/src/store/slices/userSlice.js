@@ -35,7 +35,9 @@ export const loginRequest = createAsyncThunk("user/login", async (data) => {
       firstLogin: response.data.firstLogin,
     };
   } catch (error) {
-    if (error.response.status === 460) {
+    const { status, data } = error.response;
+    const message = data.split(":")[0];
+    if (status === 409 && message === "이메일 중복") {
       window.location.replace("http://localhost:3000/login_fail");
     }
     console.log(error);
